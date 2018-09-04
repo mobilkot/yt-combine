@@ -1,0 +1,348 @@
+ [
+  {"id": "8179", "name": "Исландия", "forname": "Спутниковые сети", "providers": ["SATELLITE. Siminn hf (ISLOC)"] } ,
+  {"id": "8179", "name": "Мэн о.", "forname": "Спутниковые сети", "providers": ["SATELLITE. Manx Telecom Limited (SHIPS)"] } ,
+  {"id": "8179", "name": "Норвегия", "forname": "Спутниковые сети", "providers": ["SATELLITE. AeroMobile AS","SATELLITE. Maritime Communications Partner as"] } ,
+  {"id": "8179", "name": "ОАЭ", "forname": "Спутниковые сети", "providers": ["SATELLITE. Thuraya Telecommunications Company"] } ,
+  {"id": "8179", "name": "Швейцария", "forname": "Спутниковые сети", "providers": ["SATELLITE. OnAir Switzerland S?rl"] } ,
+  {"id": "8179", "name": "Швеция", "forname": "Спутниковые сети", "providers": ["SATELLITE. Seanet Maritime Communications AB"] } ,
+  {"id": "8001", "name": "", "forname": "Абхазия", "providers": ["Aquafon-GSM, Close Joint Stock Company (28967)"] } ,
+  {"id": "8002", "name": "", "forname": "Австралия", "providers": ["Vodafone Network Pty Ltd (50503)","TELSTRA Corporation Limited (50501)","Optus Mobile Pty Ltd (50502)"] } ,
+  {"id": "8003", "name": "", "forname": "Австрия", "providers": ["A1 Telekom Austria AG (AUTPT) (23201)","T-Mobile Austria GmbH (AUTMM) (23203)","Hutchison 3G Austria GmbH (23210, 23214)","A1 Telekom Austria AG (AUTMK) (23202)","T-Mobile Austria GmbH (AUTTR) (23204, 23207, 23215)","Orange Austria Telecommunication GmbH (23205)"] } ,
+  {"id": "8004", "name": "", "forname": "Азербайджан", "providers": ["Azerfon LLC (40004)","Bakcell Ltd (40002)","Azercell Telekom LLC (40001)"] } ,
+  {"id": "8005", "name": "", "forname": "Албания", "providers": ["PLUS COMMUNICATION Sh.a. (27604)","Albanian Mobile Communications sh.a. (27601)","Vodafone Albania Sh.A. (27602)"] } ,
+  {"id": "8006", "name": "", "forname": "Алжир", "providers": ["Wataniya Telecom Algerie s.p.a. (60303)","Algerie Telecom Mobile (60301)","Orascom Telecom Algerie Spa (60302)"] } ,
+  {"id": "8013", "name": "", "forname": "Антигуа", "providers": ["Antigua Wireless Ventures Limited (365010)"] } ,
+  {"id": "8009", "name": "", "forname": "Ангола", "providers": ["UNITEL S.a.r.l. (63102)"] } ,
+  {"id": "8010", "name": "", "forname": "Андорра", "providers": ["Servei de Telecomunicacions d'Andorra"] } ,
+  {"id": "8012", "name": "", "forname": "Макао", "providers": ["Hutchison Telephone Macau Co. Ltd. (45503, 45505)","Companhia de Telecomunicacoes de Macau S.A.R.L. (45501, 45504)"] } ,
+  {"id": "8015", "name": "", "forname": "Аргентина", "providers": ["Claro Argentina (722310, 722320, 722330)","Telecom Personal S.A. (722340, 722341)","Nextel Argentina S.R.L. (722020)","Telefonica Moviles Argentina S.A. (722070)"] } ,
+  {"id": "8016", "name": "", "forname": "Армения", "providers": ["Armenia Telephone Company (28301)","K Telecom CJSC","Orange Armenia (28310)","Karabakh Telecom (28304)"] } ,
+  {"id": "8017", "name": "", "forname": "Аруба", "providers": ["New Millennium Telecom Services N.V"] } ,
+  {"id": "8018", "name": "", "forname": "Афганистан", "providers": ["Afghan Wireless Communication Company (41201)","MTN Afghanistan (41240)","Telecom Development Company Limited","Afghan Telecom (41280, 41288)"] } ,
+  {"id": "8019", "name": "", "forname": "Багамы", "providers": ["The Bahamas Telecommunications Company Ltd (36430, 36439, 364390)"] } ,
+  {"id": "8020", "name": "", "forname": "Бангладеш", "providers": ["Robi Axiata Limited (47002)","Airtel Bangladesh Limited (47007)","Orascom Telecom Bangladesh Limited (47003)","GrameenPhone Limited (47001)"] } ,
+  {"id": "8022", "name": "", "forname": "Бахрейн", "providers": ["VIVA Bahrain B.C.S. Closed (42604)","Bahrain Telecommunication Company (Batelco) (42601)","MTC Vodafone (Bahrain) (42602)"] } ,
+  {"id": "8024", "name": "", "forname": "Беларусь", "providers": ["Foreign private unitary service enterprise VELCOM ","Mobile TeleSystems, Limited Liability Company (25702)","Belarusian Telecommunications Network, CJSC (25704)"] } ,
+  {"id": "8023", "name": "", "forname": "Белиз", "providers": ["Belize Telemedia Limited"] } ,
+  {"id": "8025", "name": "", "forname": "Бельгия", "providers": ["KPN Group Belgium NV/SA (20620)","Mobistar S.A. (20610)","Belgacom Mobile N.V./S.A. (20601)"] } ,
+  {"id": "8026", "name": "", "forname": "Бенин", "providers": ["ETISALAT BENIN S.A. (61602)"] } ,
+  {"id": "8027", "name": "", "forname": "Бермуды", "providers": ["Bermuda Digital Communications Limited (355000)","Bermuda Digital Communications Limited (BMUBD)"] } ,
+  {"id": "8028", "name": "", "forname": "Болгария", "providers": ["MobilTel EAD (28401)","Bulgarian Telecommunications Company AD (28403, 28406)","COSMO BULGARIA MOBILE EAD (28405)"] } ,
+  {"id": "8029", "name": "", "forname": "Боливия", "providers": ["ENTEL S.A. (73602)","Nuevatel PCS de Bolivia SA (73601)"] } ,
+  {"id": "8030", "name": "", "forname": "Босния и Герцеговина", "providers": ["BH TELECOM, Joint Stock Company, Sarajevo (21890)","PUBLIC ENTERPRISE CROATIAN TELECOM Ltd.","RS Telecommunications Joint Stock Company Banja Luka"] } ,
+  {"id": "8031", "name": "", "forname": "Ботсвана", "providers": ["Mascom Wireless (Pty) Ltd. (65201)","Orange Botswana (Pty) Ltd (65202)"] } ,
+  {"id": "8032", "name": "", "forname": "Бразилия", "providers": ["TIM Celular S.A. (BRASP) (72402, 72403)","CLARO SA (72405, 72412, 72438)","TNL PCS S/A (72430, 72431)","Nextel Telecomunicacoes Ltda. (72400, 72439)","VIVO S.A. (BRAV2) (72410, 72411)","TIM Celular S.A. (BRARN) (72404)","VIVO S.A. (BRAV3) (72419, 72423)","VIVO S.A. (BRAV1) (72401, 72406)","TIM Celular S.A. (BRACS) (72408)"] } ,
+  {"id": "8034", "name": "", "forname": "Бруней", "providers": ["DST COMMUNICATIONS SDN BHD (BRNBN) (52811)","DST COMMUNICATIONS SDN BHD (BRNDS)","B-Mobile Communications Sdn Bhd (52802)"] } ,
+  {"id": "8035", "name": "", "forname": "Буркина-Фасо", "providers": ["Bharti Airtel Burkina Faso S.A. (61302)"] } ,
+  {"id": "8036", "name": "", "forname": "Бурунди", "providers": ["U-COM Burundi"] } ,
+  {"id": "8037", "name": "", "forname": "Бутан", "providers": ["B-Mobile (40211)"] } ,
+  {"id": "8038", "name": "", "forname": "Вануату", "providers": ["Digicel (Vanuatu) Limited (54105)"] } ,
+  {"id": "8040", "name": "", "forname": "Великобритания", "providers": ["Orange Personal Communications Services Ltd. (23433, 23434)","Everything Everywhere Limited (23502, 23430, 23431, 23432)","Vodafone Limited (23415, 23427, 23491)","Telefonica UK Limited","Hutchison 3G UK Ltd (23420, 23494)"] } ,
+  {"id": "8041", "name": "", "forname": "Венгрия", "providers": ["Pannon GSM (21601)","Vodafone Hungary Ltd. (21670)","Magyar Telekom Telecommunications Public Limited Company (21630)"] } ,
+  {"id": "8042", "name": "", "forname": "Венесуэла", "providers": ["Corporation DIGITEL, C.A. (VEND2) (73401, 73402, 73403)"] } ,
+  {"id": "8044", "name": "", "forname": "Вьетнам", "providers": ["Hanoi Telecom Joint Stock Company","Vietnam Telecom Services Company (GPC)","Vietnam Mobile Telecom Services (VMS)","VIETTEL Group (45204, 45206, 45208)"] } ,
+  {"id": "8045", "name": "", "forname": "Габон", "providers": ["Celtel Gabon S.A. (62803)"] } ,
+  {"id": "8046", "name": "", "forname": "Гайана", "providers": ["Guyana Telephone & Telegraph Company (GT&T)"] } ,
+  {"id": "8048", "name": "", "forname": "Гамбия", "providers": ["Gambia Telecommunications Cellular Company Ltd. (60701)","Africell (Gambia) Ltd. (60701)"] } ,
+  {"id": "8049", "name": "", "forname": "Гана", "providers": ["Ghana Telecommunications Company Ltd.","SCANCOM LIMITED","Millicom Ghana Limited (62003)"] } ,
+  {"id": "8051", "name": "", "forname": "Гватемала", "providers": ["Comunicaciones Celulares, S.A. (70402)"] } ,
+  {"id": "8052", "name": "", "forname": "Гвинея", "providers": ["INTERCEL Guinee (61103)"] } ,
+  {"id": "8222", "name": "", "forname": "Экваториальная Гвинея", "providers": ["Guinea Equatorial de Telecomunicaciones S.A. (62701)"] } ,
+  {"id": "8053", "name": "", "forname": "Гвинея-Бисау", "providers": ["MTN Guinea Bissau"] } ,
+  {"id": "8054", "name": "", "forname": "Германия", "providers": ["Telecom Deutschland GmbH. (26201, 26206)","Telefonica O2 Germany GmbH & Co. OHG (DEUO2) (26207, 26208)","Telefonica O2 Germany GmbH & Co. OHG (DEUE2) (26211)","E-Plus Mobilfunk GmbH (26205, 26203, 26212, 26220, 26277, 26217)","Vodafone D2 GmbH (26202, 26204, 26209, 26242)"] } ,
+  {"id": "8055", "name": "Гернси", "forname": "Джерси и Гернси о.", "providers": ["Cable and Wireless Guernsey Limited (23455)"] } ,
+  {"id": "8056", "name": "", "forname": "Гибралтар", "providers": ["Gibtelecom Limited (26601)"] } ,
+  {"id": "8057", "name": "", "forname": "Гондурас", "providers": ["SERCOM DE HONDURAS, S.A. DE C.V. (708001)","Telefonica Celular S.A. (CELTEL) (708002)"] } ,
+  {"id": "8058", "name": "", "forname": "Гонконг", "providers": ["CSL Limited (HKGNW) (45400, 45402)","Hutchison Telephone Co. Ltd. (45403, 45404, 45405, 45414)","SmarTone Mobile Communications Limited (45415, 45417)","CSL Limited (HKGTC) (45418)","China Mobile Hong Kong Company Limited (45412, 45413, 45428)","Hong Kong Telecommunications (HKT) Limited (HKGMC) (45411, 45416)","Hong Kong Telecommunications (HKT) Limited (HKGM3) (45419, 45420, 45429)"] } ,
+  {"id": "8060", "name": "", "forname": "Гренландия", "providers": ["Tele Greenland A/S (29001)"] } ,
+  {"id": "8061", "name": "", "forname": "Греция", "providers": ["WIND HELLAS Telecommunications S.A. (GRCSH) (20209)","WIND HELLAS Telecommunications S.A.(GRCQT) (20210)","COSMOTE MOBILE TELECOMMUNICATIOS S.A. (20201, 20202)","Vodafone - Panafon Hellenic Telecommunications Company S.A. (20205)"] } ,
+  {"id": "8062", "name": "", "forname": "Грузия", "providers": ["Geocell LTD. (28201)","Mobitel LLC (28204)","Magticom Ltd. (28202)"] } ,
+  {"id": "8063", "name": "", "forname": "Гуам", "providers": ["DOCOMO PACIFIC, INC. (310370, 310470)"] } ,
+  {"id": "8064", "name": "", "forname": "Дания", "providers": ["TDC Mobil A/S (23801, 23810)","Hi3G Denmark ApS (23806)","Telia Mobile (DNKIA) (23820, 23830)","Telenor A/S. (23802, 23877)"] } ,
+  {"id": "8055", "name": "Джерси", "forname": "Джерси и Гернси о.", "providers": ["Jersey Telecom (23450, 23451)"] } ,
+  {"id": "8066", "name": "", "forname": "Джибути", "providers": ["Djibouti Telecom (63801)"] } ,
+  {"id": "8068", "name": "", "forname": "Доминиканская республика", "providers": ["Orange Dominicana S.A. (37001)"] } ,
+  {"id": "8069", "name": "", "forname": "Египет", "providers": ["Etisalat Misr (60203)","Vodafone Egypt Telecommunications S.A.E. (60202)","Egyptian Company for Mobile Services"] } ,
+  {"id": "8070", "name": "", "forname": "Замбия", "providers": ["MTN Zambia Limited (64502)"] } ,
+  {"id": "8071", "name": "", "forname": "Зимбабве", "providers": ["Posts and Telecommunication Corporation","Econet Wireless (Pvt.) LTD (64804)","Telecel Zimbabwe (pvt) Ltd (64803)"] } ,
+  {"id": "8073", "name": "", "forname": "Израиль", "providers": ["Hot Mobile Ltd. (42507)","Mirs Communications Ltd (42577)","Pelephone Communications Ltd. (42503, 42512)","Partner Communications Company Ltd. (42501)","Cellcom Israel Ltd. (42502)","Palestine Cellular Telecommunications Co."] } ,
+  {"id": "8074", "name": "", "forname": "Индия", "providers": ["Tata Teleservices Limited (INDT2) (405034)","SkyCell Communications Ltd","Idea Mobile Communications Limited (Haryana) (40422)","Vodafone Essar Cellular Ltd. (Maharashtra)","IDEA Cellular Limited (Gujarat) (40404)","Vodafone Essar Cellular Ltd. (Tamil Nadu)","Vodafone Essar Ltd.","Bharti Airtel Limited (INDJH) (404045)","Bharat Sanchar Nigam Limited","Idea Mobile Communications Limited (UP West) (40407)","Aircel Limited (IND21) (40401)","Vodafone Essar Cellular Ltd. (Kerala)","Mahanagar Telephone Nigam Limited (New Delhi) (40468)","Bharti Airtel Limited (INDMT) (40410)","Reliance Telecom Ltd. (Madhya Pradesh) (40409, 40418,40436, 40450, 40452, 40467)","Aircel Limited (IND24) (40415)","Loop Mobile (India) Limited","Idea Mobile Communications Limited (Kerala)","Vodafone Essar Gujarat Ltd.","Bharti Hexacom Limited (40470)","Mahanagar Telephone Nigam Limited (Mumbai) (40469)","IDEA Cellular Limited (Madhya Pradesh) (40424)","Aircel Cellular Limited (40417, 40425, 40428, 40429)","Spice Communications Ltd. (Punjab) (40414)","Tata Teleservices Limited (INDT0)","Tata Teleservices Limited (INDT1)","Spice Communications Ltd. (Karnataka) (40444)","Tata Teleservices Limited (INDT3)","Tata Teleservices Limited (INDT4)","Tata Teleservices Limited (INDT5)","Tata Teleservices (Maharashtra) Limited (INDT6)","Tata Teleservices Limited (INDT7)","Tata Teleservices Limited (INDT8)","Tata Teleservices Limited (INDT9)","Tata Teleservices Limited (INDTB)","Tata Teleservices Limited (INDTD)","Tata Teleservices Limited (INDTG)","Tata Teleservices Limited (INDTH)","Tata Teleservices Limited (INDTK)","Tata Teleservices (Maharashtra) Limited (INDTM)","Tata Teleservices Limited (INDTO)","Tata Teleservices Limited (INDTP)","Tata Teleservices Limited (INDTR)","Vodafone Essar East Ltd.","Bharti Airtel Limited (INDAT)","IDEA Cellular Limited (Maharashtra) (40478)","Vodafone Essar Mobile Services Ltd.","Bharti Airtel Limited (INDJB)"] } ,
+  {"id": "8075", "name": "", "forname": "Индонезия", "providers": ["PT Indonesian Satellite Corporation Tbk (51000)","PT Telekomunikasi Selular (51027)","PT Natrindo Telepon Seluler (51008)","PT Hutchison CP Telecommunications (51089)","PT XL Axiata Tbk."] } ,
+  {"id": "8076", "name": "", "forname": "Иордания", "providers": ["Petra Jordanian Mobile Telecommunications Company (41677)","Xpress Telecommunications (41602)","Umniah Mobile Company (41603)","Jordan Mobile Telephone Services Co. Ltd. (41601)"] } ,
+  {"id": "8077", "name": "", "forname": "Ирак", "providers": ["ORASCOM Telecom Iraq (41830)","Korek Telecom Ltd. (41840, 41882)","Atheer Telecom Iraq (41820)","Asiacell communications L.L.C (41805)"] } ,
+  {"id": "8078", "name": "", "forname": "Иран", "providers": ["MTN Irancell (43235)","Mobile Company of Iran (MCI) (43211)","Rightel Communication Services Company PJS (43220)","Rafsajan Industrial Complex (Coop)"] } ,
+  {"id": "8079", "name": "", "forname": "Ирландия", "providers": ["Telefonica O2 Ireland Limited (27202)","Meteor Mobile Communications (27203)","Vodafone Ireland Ltd. (27201)"] } ,
+  {"id": "8080", "name": "", "forname": "Исландия", "providers": ["Siminn hf (ISLTA) (27401)","IMC Island ehf. d/b/a Viking Wireless (27404)","Fjarskipti ehf (ISLTL)","Nova ehf. (27411)","Siminn hf (ISLPS) (27408)"] } ,
+  {"id": "8081", "name": "", "forname": "Испания", "providers": ["TELEFONICA MOVILES ESPANA, S.A. (Sociedad unipersonal) (","France Telecom Espana, S.A.","Vodafone Espana S.A.U.(ESPVV) (21401)","Xfera Moviles S.A."] } ,
+  {"id": "8082", "name": "", "forname": "Италия", "providers": ["Vodafone Omnitel N.V. (22206, 22210)","Telecom Italia S.p.A. (22243, 22248)","Wind Telecomunicazioni S.p.A. (22244, 22288)","H3G SpA (22299)"] } ,
+  {"id": "8072", "name": "", "forname": "Йемен", "providers": ["MTN Yemen (42102)","Yemen Company for Mobile Telephony (42103)"] } ,
+  {"id": "8083", "name": "", "forname": "Кабо-Верде", "providers": ["T+ TELECOMUNICACÕESSA, Cape Verde (62502)","CVMovel, S.A. (62501)"] } ,
+  {"id": "8084", "name": "", "forname": "Казахстан", "providers": ["KaR-Tel LLP (40101)","GSM Kazakhstan LLP OAO Kazakhtelecom ","Mobile Telecom-Service LLP (40177)"] } ,
+  {"id": "8086", "name": "", "forname": "Камбоджа", "providers": ["Mfone Company Limited (45618)","VIETTEL (CAMBODIA) PTE. LTD","Smart Axiata Co., Ltd. (45602, 45605, 45606)","CamGSM Company Limited (45601)"] } ,
+  {"id": "8087", "name": "", "forname": "Камерун", "providers": ["Orange Cameroun S.A. (62402)","MTN Cameroon Ltd. (62401)"] } ,
+  {"id": "8088", "name": "", "forname": "Канада", "providers": ["Bell Mobility Inc. (302610, 302651, 302652)","TELUS Communications Company (302220)","Rogers Communications Partnership (302720)","Fido Solutions Inc. (302370)"] } ,
+  {"id": "8089", "name": "", "forname": "Катар", "providers": ["Vodafone Qatar Q.S.C. (42702)","Qatar Telecom (Qtel) Q.S.C. (42701)"] } ,
+  {"id": "8090", "name": "", "forname": "Кения", "providers": ["Safaricom Limited (63902)","Airtel Networks Kenya Limited (63903)"] } ,
+  {"id": "8091", "name": "", "forname": "Кипр", "providers": ["Areeba Ltd. (28010)","Cyprus Telecommunications Authority (28001)","PrimeTel PLC (28020)"] } ,
+  {"id": "8093", "name": "", "forname": "Китай", "providers": ["China United Network Communications Corporation Limited (46001, 46006)","China Mobile International Limited (CHNCT) (46000)","China Mobile International Limited (CHNCM) (46002)","China Mobile International Limited (CHNTD) (46007)"] } ,
+  {"id": "8094", "name": "", "forname": "Колумбия", "providers": ["Colombia Movil S.A. E.S.P. (732001, 732103, 732111)"] } ,
+  {"id": "8095", "name": "", "forname": "Коморские острова", "providers": ["Societe Nationale des Telecommunications (Comores Telecom) (65401)"] } ,
+  {"id": "8096", "name": "", "forname": "Республика Конго", "providers": ["Celtel Congo (RDC) SPRL","Vodacom Congo (RDC) S.p.r.l","Celtel Congo S.A."] } ,
+  {"id": "8099", "name": "", "forname": "Коста-Рика", "providers": ["CLARO CR Telecomunicaciones, S.A (71203)","INSTITUTO COSTARRICENSE DE ELECTRICIDAD"] } ,
+  {"id": "8100", "name": "", "forname": "Кот-Д’Ивуар", "providers": ["MTN Cote d'Ivoire S.A. (61205)","Orange Cote d'Ivoire S.A. (61203)"] } ,
+  {"id": "8101", "name": "", "forname": "Куба", "providers": ["Empresa De Telecomunicaciones De Cuba S.A."] } ,
+  {"id": "8102", "name": "", "forname": "Кувейт", "providers": ["Mobile Telecommunications Company","National Mobile Telecommunications Co."] } ,
+  {"id": "8103", "name": "", "forname": "Киргизия", "providers": ["NURTelecom LLC (43709)","Alfa Telecom CJSC","Sky Mobile LLC"] } ,
+  {"id": "8104", "name": "", "forname": "Лаос", "providers": ["VimpelCom Lao Co, Ltd (45708)"] } ,
+  {"id": "8105", "name": "", "forname": "Латвия", "providers": ["Latvian Mobile Telephone Co. Ltd. (24701)","Bite Latvija (24705)","Tele2, Ltd. (24702)"] } ,
+  {"id": "8106", "name": "", "forname": "Лесото", "providers": ["Vodacom Lesotho (Pty) Ltd (65101)","Econet Telecom Lesotho (65102)"] } ,
+  {"id": "8107", "name": "", "forname": "Либерия", "providers": ["COMIUM LIBERIA INC (61804)"] } ,
+  {"id": "8108", "name": "", "forname": "Ливан", "providers": ["Mobile Interim Company No. 2 SAL (MIC2) (41503)","Mobile Interim Company 1 S.A.L. (41501)"] } ,
+  {"id": "8109", "name": "", "forname": "Ливия", "providers": ["Al Madar Al Jadid Telecom Company (60601, 60602)"] } ,
+  {"id": "8110", "name": "", "forname": "Литва", "providers": ["Omnitel (24601)","Tele1 (24603)","UAB Bite Lietuva (24602)"] } ,
+  {"id": "8111", "name": "", "forname": "Лихтенштейн", "providers": ["Mobilkom (Liechtenstein)","Alpcom AG"] } ,
+  {"id": "8112", "name": "", "forname": "Люксембург", "providers": ["Orange S.A. (27099)","MTX Connect S.à r.l.","P&T Luxembourg (27001)","TANGO S.A."] } ,
+  {"id": "8113", "name": "", "forname": "Маврикий", "providers": ["Mahanagar Telephone (Mauritius) Ltd. (61702, 61703)","Emtel Ltd. (61710)","Cellplus Mobile Communications Ltd. (61701)"] } ,
+  {"id": "8114", "name": "", "forname": "Мавритания", "providers": ["Mauritel Mobiles (60910)"] } ,
+  {"id": "8115", "name": "", "forname": "Мадагаскар", "providers": ["Celtel Madagascar S.A.","Telma Mobile (64604)","Orange Madagascar S.A. (64602)"] } ,
+  {"id": "8117", "name": "", "forname": "Македония", "providers": ["T-Mobile Macedonia AD Skopje (29401)","VIP OPERATOR DOOEL Skopje (29403)","ONE Telecommunications Services DOO Skopje (29402, 29475)"] } ,
+  {"id": "8118", "name": "", "forname": "Малави", "providers": ["Celtel Malawi Limited (65010)"] } ,
+  {"id": "8119", "name": "", "forname": "Малайзия", "providers": ["Celcom (Malaysia) Berhad (50213, 50219, 502198)","Telekom Cellular Sdn. Bhd.","DiGi Telecommunications SDN BHD (50210, 50216)","Maxis Mobile Services Sdn. Bhd. (50212, 50217)"] } ,
+  {"id": "8120", "name": "", "forname": "Мали", "providers": ["Malitel SA (61001)","Orange Mali SA (61002)"] } ,
+  {"id": "8121", "name": "", "forname": "Мальдивы", "providers": ["Wataniya Telecom Maldives (47202)","Dhivehi Raajjeyge Gulhun Private Limited"] } ,
+  {"id": "8122", "name": "", "forname": "Мальта", "providers": ["Vodafone Malta Limited (27801)","MobIsle Communications Limited"] } ,
+  {"id": "8123", "name": "", "forname": "Марокко", "providers": ["WANA CORPORATE (60402)","Medi Telecom S.A. (60400)","ITISSALAT AL MAGHRIB S.A (60401)"] } ,
+  {"id": "8127", "name": "", "forname": "Мексика", "providers": ["Pegaso PCS, S.A. de C.V. (33403, 334030)","Radiomovil DIPSA S.A. de C.V. Telcel","Iusacell S.A. de C.V. (33404, 334040, 334050, 33450)","Comunicaciones Nextel de Mexico S.A. de C.V. (33401, 33409, 334010, 334090)"] } ,
+  {"id": "8129", "name": "", "forname": "Мозамбик", "providers": ["VM S.A.R.L.","Mozambique Celular, SARL (mCel) (64301)"] } ,
+  {"id": "8130", "name": "", "forname": "Молдавия", "providers": ["Moldtelecom S.A.","ORANGE MOLDOVA S.A. (25901)","Moldcell SA (25902)"] } ,
+  {"id": "8131", "name": "", "forname": "Монако", "providers": ["Monaco Telecom S.A.M (21210)","Monaco Telecom International (21201)"] } ,
+  {"id": "8132", "name": "", "forname": "Монголия", "providers": ["MobiCom Corporation (42899)","Skytel LLC, Mongolia (42800, 42891)","Unitel LLC (42888)"] } ,
+  {"id": "8134", "name": "", "forname": "Мьянма", "providers": ["Myanma Posts and Telecommunications (41401)","Ooredoo Myanmar Limited (41405)"] } ,
+  {"id": "8128", "name": "", "forname": "Мэн о.", "providers": ["Manx Telecom Limited (GBRMT) (23458)"] } ,
+  {"id": "8135", "name": "", "forname": "Намибия", "providers": ["Mobile Telecommunications Limited (64901)"] } ,
+  {"id": "8136", "name": "", "forname": "Науру", "providers": ["Digicel (Fiji) Limited"] } ,
+  {"id": "8137", "name": "", "forname": "Непал", "providers": ["Ncell Private Limited (42902)","Nepal Doorsanchar Company Limited New Services Directorat"] } ,
+  {"id": "8138", "name": "", "forname": "Нигер", "providers": ["Celtel Niger S.A. (61402)"] } ,
+  {"id": "8139", "name": "", "forname": "Нигерия", "providers": ["MTN Nigeria Communications Ltd (62130)","GLOBACOM LIMITED (62150)","Emerging Markets Telecommunication Services Ltd"] } ,
+  {"id": "8011", "name": "", "forname": "Нидерландские Антильские острова", "providers": ["Curacao Telecom N.V."] } ,
+  {"id": "8140", "name": "", "forname": "Нидерланды", "providers": ["Vodafone Libertel B.V. (20404)","T-Mobile Nederland BV (NLDPN) (20498)","KPN B.V. (20410, 20408, 20469)","T-Mobile Nederland BV (NLDDT) (20416)","Telfort B.V. (20412)"] } ,
+  {"id": "8141", "name": "", "forname": "Никарагуа", "providers": ["Telefonia Celular de Nicaragua S.A."] } ,
+  {"id": "8142", "name": "", "forname": "Новая Зеландия", "providers": ["Two Degrees Mobile Limited (53028)","Vodafone New Zealand Limited (53001)"] } ,
+  {"id": "8144", "name": "", "forname": "Норвегия", "providers": ["Telenor Norge AS (24212, 24201)","TeliaSonera Norge AS","Mobile Norway AS"] } ,
+  {"id": "8145", "name": "", "forname": "ОАЭ", "providers": ["Emirates Integrated Telecommunications Company PJSC","Emirates Telecommunications Corporation"] } ,
+  {"id": "8146", "name": "", "forname": "Оман", "providers": ["Oman Mobile Telecommunications Company LLC (42202)","Omani Qatari Telecommunicaton Company S.A.O.C."] } ,
+  {"id": "8148", "name": "", "forname": "Пакистан", "providers": ["PAK Telecom Mobile Limited (41003)","Warid Telecom (Pvt) Ltd (41007)","Pakistan Mobile Communications Ltd.","Telenor Pakistan (Pak) Ltd."] } ,
+  {"id": "8149", "name": "", "forname": "Палау", "providers": ["Palau Mobile Corporation (55280)"] } ,
+  {"id": "8151", "name": "", "forname": "Панама", "providers": ["Telefonica Moviles Panama, S.A.","Cable and Wireless Panama, S.A. (71401)"] } ,
+  {"id": "8152", "name": "", "forname": "Папуа-Новая Гвинея", "providers": ["Digicel (PNG) Limited (53703)"] } ,
+  {"id": "8153", "name": "", "forname": "Парагвай", "providers": ["AMX Paraguay S.A.","Telefonica Celular del Paraguay S.A.","Hola Paraguay S.A. (74401)"] } ,
+  {"id": "8154", "name": "", "forname": "Перу", "providers": ["America Movil Peru S.A.C. (71610, 71620)","Telefónica Móviles S.A.C.","Nextel de Peru S.A. (71607, 71617)"] } ,
+  {"id": "8155", "name": "", "forname": "Польша", "providers": ["POLKOMTEL S.A. (26001)","P4 Sp. Z o.o.","PTK-Centertel Ltd.","Polska Telefonia Cyfrowa S.A."] } ,
+  {"id": "8156", "name": "", "forname": "Португалия", "providers": ["Vodafone Portugal – Comunicacoes Pessoais, S.A. (26801)","TMN, Telecomunicacoes Moveis Nacionais, SA (26806)","Optimus - Comunicacoes, S.A. (26803, 26807)"] } ,
+  {"id": "8097", "name": "", "forname": "КНДР", "providers": ["KT Corporation (KORKF) (45002)","KT Corporation (KORKT) (45004, 45008)","SK Telecom Co., Ltd. (45003, 45005)","LG Uplus Corp. (45006)"] } ,
+  {"id": "8158", "name": "", "forname": "Реюньон", "providers": ["Orange Reunion (64700)"] } ,
+  {"id": "8159", "name": "", "forname": "Руанда", "providers": ["MTN RWANDA CELL (63510)","TIGO RWANDA LTD. (63513)"] } ,
+  {"id": "8160", "name": "", "forname": "Румыния", "providers": ["Vodafone Romania S.A. (22601)","S.C. Cosmote Romanian Mobile Telecommunications S.A. (22603)","S.C. RCS & RDS S.A. (22605)","S.C. Orange Romania S.A. (22610)"] } ,
+  {"id": "8161", "name": "", "forname": "Сальвадор", "providers": ["CTE Telecom Personal (70601)"] } ,
+  {"id": "8163", "name": "", "forname": "Сан-Марино", "providers": ["San Marino Telecom S.p.A."] } ,
+  {"id": "8165", "name": "", "forname": "Саудовская Аравия", "providers": ["Saudi Telecom Company","Etihad Etisalat Company (42003)","Mobile Telecommunications Company Saudi Arabia (Zain Saudi Arabi"] } ,
+  {"id": "8166", "name": "", "forname": "Свазиленд", "providers": ["MTN SWAZILAND LIMITED (65310)"] } ,
+  {"id": "8168", "name": "", "forname": "Сейшельские о-ва", "providers": ["Cable and Wireless (Seychelles) Ltd. (63301)"] } ,
+  {"id": "8169", "name": "", "forname": "Сенегал", "providers": ["Sonatel (60801)"] } ,
+  {"id": "8171", "name": "", "forname": "Сент-Винсент и Гренадины", "providers": ["Antigua Wireless Ventures Limited"] } ,
+  {"id": "8174", "name": "", "forname": "Сербия", "providers": ["Telenor d.o.o (22001, 22002)","Preduzece za telekomunikacije Telekom Srbija ","Vip mobile d.o.o. (22005)"] } ,
+  {"id": "8175", "name": "", "forname": "Сингапур", "providers": ["Singapore Telecom Mobile Pte Ltd (SGPML)","M1 Limited (52503)","Singapore Telecom Mobile Pte Ltd (SGPST)","StarHub Mobile Pte Ltd (52505, 52506)"] } ,
+  {"id": "8176", "name": "", "forname": "Сирия", "providers": ["MTN Syria (41702","Syriatel Mobile Telecom S.A. (41701, 41709)"] } ,
+  {"id": "8177", "name": "", "forname": "Словакия", "providers": ["Orange Slovensko a.s. (23101, 23105, 23115)","Slovak Telekom, a.s.","O2 Slovakia, s.r.o. (23106)"] } ,
+  {"id": "8178", "name": "", "forname": "Словения", "providers": ["Tusmobil d.o.o. (29370)","Telekom Slovenije, d.d.","SI.MOBIL d.d. (29340)"] } ,
+  {"id": "8180", "name": "", "forname": "Судан", "providers": ["Sudanese Mobile Telephone Company Ltd.","M.T.N. Sudan Company Limited (63402, 63422)","The South Sudanese Mobile Telephone (Zain) Co. Ltd - South Sudan (65906)","Network of The World (65904)","MTN South Sudan Ltd. (65902)"] } ,
+  {"id": "8185", "name": "", "forname": "Суринам", "providers": ["Telecommunicatiebedrijf Suriname (74602)"] } ,
+  {"id": "8182", "name": "", "forname": "США", "providers": ["Sprint Nextel Corporation","Union Telephone Company","Cincinnati Bell Wireless, LLC","T-Mobile USA, Inc. (USAW5)","AT&T Mobility LLC (USAAT)","Sprint Nextel Corporation","T-Mobile USA, Inc. (USA27)","AT&T Mobility LLC (USABS)","T-Mobile USA, Inc. (USA16)","T-Mobile USA, Inc. (USAW2)","T-Mobile USA, Inc. (USAW0)","AT&T Mobility LLC (USACG)","AT&T Mobility LLC (BMU01)","T-Mobile USA, Inc. (USAW4)","AT&T Mobility LLC (USAPB)","T-Mobile USA, Inc. (USAW6)","T-Mobile USA, Inc. (USAW1)","T-Mobile USA, Inc. (USAW3)","Videotron G.P.","T-Mobile USA, Inc. (USA31)"] } ,
+  {"id": "8186", "name": "", "forname": "Сьера-Леоне", "providers": ["COMIUM (SL) Ltd (61904)","Africell-Lintel (SL) Ltd. (61903)","Celtel Sierra Leone Ltd. (61901)"] } ,
+  {"id": "8187", "name": "", "forname": "Таджикистан", "providers": ["CJSC Babilon-Mobile (43602)","JV Somoncom (43601, 43612)","TT Mobile, Close Joint Stock Company (43603)","Indigo Tajikistan, CJSC"] } ,
+  {"id": "8188", "name": "", "forname": "Тайвань", "providers": ["Far EasTone Telecommunications Co., Ltd. (46601, 46602, 46603, 46606, 46607)","Chunghwa Telecom Mobile Business Group (46611, 46692)","VIBO Telecom Inc. (46689)","Taiwan Mobile Co., Ltd","Mobitai Communications Corp. (46693)"] } ,
+  {"id": "8189", "name": "", "forname": "Таиланд", "providers": ["Real Future Company Limited","True Move Company Limited (52004, 52099)","Total Access Communication Public Company Ltd (52005, 52018)","Advanced Info Service Public Company Limited (52001)","Advanced Info Service Public Company Limited","dtac TriNet Co., Ltd."] } ,
+  {"id": "8190", "name": "", "forname": "Танзания", "providers": ["Zanzibar Telecom Limited (64003)","Vodacom Tanzania Limited (64004)","MIC Tanzania Ltd. (64002)","Airtel Tanzania Limited (64005)","SMART TZA"] } ,
+  {"id": "8192", "name": "", "forname": "Того", "providers": ["Togo Cellulaire (61501)"] } ,
+  {"id": "8193", "name": "", "forname": "Тонга", "providers": ["Digicel (Tonga) Limited"] } ,
+  {"id": "8194", "name": "", "forname": "Тринидад и Тобаго", "providers": ["Telecommunications Services of Trinidad and Tobago Ltd. (37412, 374120)","Digicel (Trinidad and Tobago) Limited (374130)"] } ,
+  {"id": "8195", "name": "", "forname": "Тунис", "providers": ["Orange Tunisie S.A. (60501)","Tunisie Telecom (60502, 60506)","TUNISIANA S.A."] } ,
+  {"id": "8196", "name": "", "forname": "Туркменистан", "providers": ["Altyn Asyr TM Cell (43802)","Barash Communication Technologies INC (43801)"] } ,
+  {"id": "8197", "name": "", "forname": "Турция", "providers": ["TURKCELL ILETISIM HIZMETLERI AS (28601)","AVEA ILETISIM HIZMETLERI A.S.(TURIS) (28603)","VODAFONE TELEKOMUNIKASYON A.S. (28602)","AVEA ILETISIM HIZMETLERI A.S.(TURAC) (28604)"] } ,
+  {"id": "8198", "name": "", "forname": "Уганда", "providers": ["Uganda Telecom Limited (64111)","Airtel Uganda Limited (64101)","MTN Uganda Limited (64110)"] } ,
+  {"id": "8199", "name": "", "forname": "Узбекистан", "providers": ["UNITEL LLC (63404)","FE COSCOM LLC (63405)","FE “Uzdunrobita” Ltd. (63407)"] } ,
+  {"id": "8200", "name": "", "forname": "Украина", "providers": ["Ukrainian Radio Systems","Ukrtelecom, Open Joint Stock Company","PrJSC MTS Ukraine (25501, 25550)","LLC ASTELIT (25506)","Kyivstar JSC (25503, 25567)"] } ,
+  {"id": "8202", "name": "", "forname": "Уругвай", "providers": ["Telefonica Moviles Del Uruguay S.A.","Administracion Nacional de Telecomunicaciones"] } ,
+  {"id": "8203", "name": "", "forname": "Фарерские острова", "providers": ["KALL PF (28802)","Faroese Telecom (28801)"] } ,
+  {"id": "8205", "name": "", "forname": "Фиджи", "providers": ["Vodafone Fiji Limited (54201)","Digicel (Fiji) Limited (54202)"] } ,
+  {"id": "8206", "name": "", "forname": "Филиппины", "providers": ["SMART Communications, Inc (51503)","Globe Telecom, GMCR Inc. (51501, 51502)","Digital Telecommunications Philippines, Inc."] } ,
+  {"id": "8207", "name": "", "forname": "Финляндия", "providers": ["DNA Ltd.(FIN2G) (24403, 24404)","TeliaSonera Finland Oyj (24491)","Alands Mobiltelefon Ab (24414)","DNA Ltd.(FINTA) (24412, 24413)","Elisa Corporation (FINRL) (24405)","Elisa Corporation (FINES) (24421)"] } ,
+  {"id": "8209", "name": "", "forname": "Франция", "providers": ["SFR (20809, 20810)","Bouygues Telecom (20820, 20821, 20888)","Orange France (20802, 20829, 20891)","ORANGE CARAIBE","Free Mobile","SFR (FRA09) (20811, 20813)","DIGICEL Antilles Francaises Guyane"] } ,
+  {"id": "8211", "name": "", "forname": "Французская Полинезия", "providers": ["TIKIPHONE S.A.S (54720)"] } ,
+  {"id": "8212", "name": "", "forname": "Хорватия", "providers": ["Croatian Telecom Inc.","Tele2 d.o.o za telekomunikacijske uslu (21902)","VIPnet d.o.o. (21910)"] } ,
+  {"id": "8213", "name": "", "forname": "Центрально африканская Республика", "providers": ["Telecel Centrafrique (62302)"] } ,
+  {"id": "8214", "name": "", "forname": "Чад", "providers": ["Celtel Tchad SA (62201)"] } ,
+  {"id": "8215", "name": "", "forname": "Черногория", "providers": ["Telenor Ltd. Podgorica (MNEPM) (29701)","Crnogorski Telekom a.d. Podgorica (MNETM)","Crnogorski Telekom a.d. Podgorica (YUGTM)","Telenor Ltd. Podgorica (YUGPM)","Drustvo za telekomunikacije MTEL d.o.o."] } ,
+  {"id": "8216", "name": "", "forname": "Чехия", "providers": ["Telefonica Czech Republic, a.s.","T-Mobile Czech Republic a.s. (23001)","Vodafone Czech Republic a.s. 23003, 23099)"] } ,
+  {"id": "8217", "name": "", "forname": "Чили", "providers": ["ENTEL Telefonia Movil S.A (73001, 73010)"] } ,
+  {"id": "8218", "name": "", "forname": "Швейцария", "providers": ["Sunrise Communications AG (22802, 22807, 22808, 22812)","Swisscom (Switzerland) Ltd. (22801)","Orange Communications SA (22803)"] } ,
+  {"id": "8219", "name": "", "forname": "Швеция", "providers": ["Telenor Sverige AB (24006, 24008, 24024)","Hi3G Access AB","Tele2 Sverige AB (SWEIQ) (24007)","TeliaSonera Mobile Networks AB (24001)","Tele2 Sverige AB (SWESM)"] } ,
+  {"id": "8220", "name": "", "forname": "Шри-Ланка", "providers": ["Mobitel Private Limited (41301)","Dialog Axiata PLC (41302)","Hutchison Telecommunications Lanka Pvt. Ltd. (41308)","Etisalat Lanka (Private) Limited (41303)","Bharti Airtel Lanka Pvt Ltd (41305)"] } ,
+  {"id": "8221", "name": "", "forname": "Эквадор", "providers": ["Consorcio Ecuatoriano de Telecomunicaciones S.A."] } ,
+  {"id": "8224", "name": "", "forname": "Эстония", "providers": ["Elisa Eesti AS","Tele2 Eesti Aktsiaselts (24803)","AS EMT"] } ,
+  {"id": "8225", "name": "", "forname": "Эфиопия", "providers": ["Ethio Telecom (63601)"] } ,
+  {"id": "8226", "name": "", "forname": "ЮАР", "providers": ["Mobile Telephone Networks (Pty) Ltd (65510, 65512)","Cell C (Pty) Ltd. (65507)","Vodacom (Pty) Ltd (65501)"] } ,
+  {"id": "8228", "name": "", "forname": "Южная Осетия", "providers": ["Остелеком, Uznaya Osetia"] } ,
+  {"id": "8230", "name": "", "forname": "Япония", "providers": ["NTT DoCoMo, Inc.","KDDI Corporation","SOFTBANK MOBILE Corp."] } ,
+  {"id": "8181", "name": "", "forname": "Южный Судан", "providers": ["The South Sudanese Mobile Telephone (Zain) Co. Ltd (65906)","MTN South Sudan Ltd. (65902)"] }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+]
