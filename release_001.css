@@ -1,4 +1,9 @@
-﻿
+/* fix css confluence */
+.aui-header .aui-header-logo-device { height: 40px; }
+.acs-side-bar .acs-side-bar-space-info .avatar { padding: 0; }
+.acs-side-bar-space-info {margin: 15px 10px 9px 20px;}
+#notifications-anchor {  padding-top: 13px; height: 26px; padding-bottom: 26px; padding-right: 30px;}
+/* //////////////////////////////////////////////////////// */
 
 .divTableCell {
     border: 0px solid #999999;
