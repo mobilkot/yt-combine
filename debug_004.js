@@ -1392,7 +1392,7 @@ function VoiceTariffs(type, mins) {
     var texthtml = "";
     var texthtml2 = "";
     var dostavka = (type === type_lego[0]) ? cur_region_teriff.dostavka : cur_region_teriff.dostavka_t;
-    texthtml = `<div class="table-wrap" style=""><table class="relative-table confluenceTable" style="width: 300px;"><colgroup><col style="width: 75%;"><col style="width: 25%;"></colgroup><tbody>`;
+    texthtml = `<div class="table-wrap" style=""><table class="relative-table confluenceTable" style="width: 600px;"><colgroup><col style="width: 85%;"><col style="width: 15%;"></colgroup><tbody>`;
     texthtml2 = texthtml;
     if (type === type_lego[0]) {
 
