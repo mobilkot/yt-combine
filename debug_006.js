@@ -492,10 +492,9 @@ function checkParams(callback, callback2) {
                 callbackLink();
                 var elm = document.querySelector('span[class="aui-header-logo-device"]');
                 elm.className = "new_aui-header-logo-device";
-                elm.innerHTML = "Реклама Yota вместо логотипа";
-
+                elm.style.fontSize  = "12px";
+                elm.innerHTML = "Реклама Yota вместо логотипа"; 
                  document.querySelector('#header').style.backgroundColor  = "#00aeef";
-                 document.querySelector('.new_aui-header-logo-device').style.fontSize  = "12px";
 
             }, 1000 );
         }
