@@ -302,7 +302,7 @@ function returnInfoBlock(type, text, title = "") {
 
 
 <h2 id="id-Тарифы[Тест]-СтоимостьвызововиSMS_${type}">Стоимость вызовов и SMS  </h2><p> </p>
-<h2 id="id-Тарифы[Тест]-Дополнительныеуслуги_${type}">Дополнительные услуги</h2><p> </p>`;
+<h2 id="id-Тарифы[Тест]-Дополнительныеуслуги_${type}">Подробнее</h2><p> </p>`;
 
 
      callback.call();
@@ -361,7 +361,13 @@ function concateApps(Checked, Rate, Sym, LastSym) {
 
 function concateSms(SmsStatus, Rate, Sym) {
     var texttemp = "";
-    if (SmsStatus)  { for (y in Rate)    if (Rate[y].id === "sm") {  texttemp += `${Sym}${Rate[y].name}`; } }
+    if (SmsStatus) {
+        for (y in Rate) {
+            if (Rate[y].id === "sm") {
+                texttemp = `${Sym}${Rate[y].name}`;
+            }
+        }
+    }
     return texttemp;
 }
 
@@ -420,7 +426,7 @@ function ToProcessText(cur_mCount, cur_mPrice, cur_gCount, cur_gPrice, cur_sum, 
 
 
     var data = {
-        SMS1: concateSms(SmsStatus, Rate," + "),
+        SMS1: concateSms(SmsStatus, Rate,""),
         n: '\n' ,
         RUB1: "&#8381;",
         RUB2: declOfNum(cur_sum, ['рубль', 'рубля', 'рублей']),
@@ -479,7 +485,7 @@ function checkParams(callback) {
         );
     if (params['region'] !== undefined) {
         //выбрать регион автоматом
-
+//mf_id_ratio
         getJSON(mf_id_ratio, callback, params['region']);
 // выведет в консоль значение  GET-параметра data
     }
@@ -638,22 +644,7 @@ function VisibleClearBody(type) {
 
 }
 
-{
-
-    function mOver(obj) {
-    }
-
-    function mOut(obj) {
-    }
-
-    function mDown(obj) {
-    }
-
-    function mUp(obj) {
-    }
-
-
-}
+{ function mOver(obj) {  } function mOut(obj) { } function mDown(obj) { } function mUp(obj) { } }
 
 
 
@@ -664,87 +655,6 @@ function VisibleClearBody(type) {
 var selected_items = []; //id чекнутых бмп
 
 
-
-
-//TODO Отображение условий в домашнем регионе и нет
-function VoiceTariffs(type, mins) {
-
-
-    var textVoiceSMS = document.getElementById("id-Тарифы[Тест]-СтоимостьвызововиSMS_"+type).nextElementSibling;
-    var textUslugi = document.getElementById("id-Тарифы[Тест]-Дополнительныеуслуги_"+type).nextElementSibling;
-    textVoiceSMS.innerHTML = ""; textUslugi.innerHTML = "";
-    var node = document.createElement('p');
-    var node2 = document.createElement('p');
-    gcheck = document.querySelectorAll('input[type="radio"][name="radio_trafic_'+type+']:checked');        //Выбрано среди трафика
-    mcheck = document.querySelectorAll('input[type="radio"][name="radio_minute_'+type+']:checked');        //Выбрано среди минут
-
-
-
-    var texthtml = "";
-    var texthtml2 = "";
-    var dostavka = (type === type_lego[0]) ? cur_region_teriff.dostavka : cur_region_teriff.dostavka_t;
-    texthtml = `<div class="table-wrap" style=""><table class="relative-table confluenceTable" style="width: 60%;"><colgroup><col style="width: 79.902%;"><col style="width: 20.098%;"></colgroup><tbody>`;
-    texthtml2 = texthtml;
-    if (type === type_lego[0]) {
-
-        if (mins === "0") {
-            texthtml += `
-                    <tr><td class="confluenceTd">Исходящие в домашний регион на других операторов: </td><td class="confluenceTd">${cur_region_teriff.pag_voice_inbound} руб./мин.</td></tr>
-                    <tr><td class="confluenceTd">Исходящие в другой регион на других операторов: </td><td class="confluenceTd">${cur_region_teriff.pag_voice} руб./мин.</td></tr>
-                    <tr><td class="confluenceTd">Вызовы на Yota по РФ: </td><td class="confluenceTd">${cur_region_teriff.pag_voice_inbound} руб./шт.</td></tr> 
-                    <tr><td class="confluenceTd">Входящие вызовы (в домашнем регионе): </td><td class="confluenceTd"> Бесплатные </td></tr>
-                    <tr><td class="confluenceTd">Входящие вызовы (вне домашнего региона): </td><td class="confluenceTd">${cur_region_teriff.pag_voice} руб./мин.</td></tr>
-                    <tr><td class="confluenceTd">Исходящие SMS сообщения по РФ (без опции): </td><td class="confluenceTd">${cur_region_teriff.pag_sms} руб./шт.</td></tr>
-                    <tr><td class="confluenceTd" colspan="2">При подключении «дополнительных 100 минут» звонки Yota-Yota становятся бесплатными и не расходуют пакет минут, вся тарификация - как при активном пакете </td> `;
-        } else {
-            texthtml += `
-                    <tr><td class="confluenceTd">Стоимость минуты сверх пакета на всех операторов РФ: </td><td class="confluenceTd">${cur_region_teriff.min_over_pack} руб./мин.</td></tr> 
-                    <tr><td class="confluenceTd">Вызовы на Yota по РФ: </td><td class="confluenceTd"> Не тарифицируются </td></tr> 
-                    <tr><td class="confluenceTd">Входящие вызовы: </td><td class="confluenceTd"> Бесплатные </td></tr>
-                    <tr><td class="confluenceTd">Исходящие SMS сообщения по РФ (без опции): </td><td class="confluenceTd">${cur_region_teriff.sms_over_pack} руб./шт.</td></tr> `;
-        }
-    } else if (type === type_lego[1]) {
-
-        if (mins === "0") {
-            texthtml += `
-                    <tr><td class="confluenceTd">Стоимость минуты на всех операторов РФ: </td><td class="confluenceTd">${cur_region_teriff.tabt.voice_pag} руб./мин.</td></tr> 
-                    <tr><td class="confluenceTd">Вызовы на Yota по РФ: </td><td class="confluenceTd">${cur_region_teriff.tabt.voice_pag} руб./мин.</td></tr> 
-                     <tr><td class="confluenceTd" colspan="2">Входящие вызовы в любом регионе (кроме Республики Крым и г. Севастополя) — бесплатны. </td> 
-                    <tr><td class="confluenceTd">Исходящие SMS сообщения по РФ (без опции): </td><td class="confluenceTd">${cur_region_teriff.tabt.sms_pag} руб./шт.</td></tr>
-                    <tr><td class="confluenceTd" colspan="2">При подключении «дополнительных 100 минут» вся тарификация - как при активном пакете </td>  `;
-        } else {
-            texthtml += `
-                    <tr><td class="confluenceTd">Стоимость минуты сверх пакета на всех операторов РФ: </td><td class="confluenceTd">${cur_region_teriff.tabt.voice_pag} руб./мин.</td></tr> 
-                    <tr><td class="confluenceTd">Вызовы на Yota по РФ: </td><td class="confluenceTd"> Не тарифицируются </td></tr> 
-                     <tr><td class="confluenceTd" colspan="2">Входящие вызовы в любом регионе (кроме Республики Крым и г. Севастополя) — бесплатны. </td> 
-                    <tr><td class="confluenceTd">Исходящие SMS сообщения по РФ (без опции): </td><td class="confluenceTd">${cur_region_teriff.tabt.sms_pag} руб./шт.</td></tr> `;
-        }
-    }
-
-        texthtml2 += `
-                    <tr><td class="confluenceTd">Дополнительный пакет 100 минут: </td><td class="confluenceTd">${cur_region_teriff.voice_add_100} руб.</td></tr> 
-                    <tr><td class="confluenceTd">Дополнительный пакет 5 Гб: </td><td class="confluenceTd"> ${cur_region_teriff.gb_add_5} руб.</td></tr> 
-                    <tr><td class="confluenceTd">Пакет SMS: </td><td class="confluenceTd"> ${cur_region_teriff.sms_base} руб. </td></tr>
-                    <tr><td class="confluenceTd" colspan="2"><b>Безлимитные приложения: <br></b>
-                    Вконтакте, Одноклассники, Facebook, Instagram, Twitter: по ${cur_region_teriff[type].social} руб.<br>
-                    Skype, Viber, Whatsapp: по ${cur_region_teriff[type].messenger} руб.<br>
-                    Youtube: ${cur_region_teriff[type].youtube} руб.<br></td></tr>
-                    <br><tr><td class="confluenceTd" colspan="2"><b>Доставка: <br></b>
-                    ${dostavka}<br></td></tr> `;
-
-
-
-
-    texthtml += `</tbody></table></div>`;
-        texthtml2 += `</tbody></table></div>`;
-        node.innerHTML = texthtml;
-        textVoiceSMS.appendChild(node);
-        node2.innerHTML = texthtml2;
-        textUslugi.appendChild(node2);
-
-
-
-}
 
 
 
@@ -1124,7 +1034,7 @@ function addRow(type, region, objRate) {
 }
 
 
-//Функция заполнения при выборе региона
+//Функция заполнения при выборе региона (да, это переменная, а не функция. Мне лень)
 var cur_region_teriff = {};
 
 //ЗАполнение конструкторных тарифов
@@ -1394,63 +1304,158 @@ SMS/MMS — ${checked_region.tab_unlim.sms_pag} руб. за штуку.<br>
 
 
 
-    ////////////////////////////////////////////////////////////////
+    ////////////////////////////////////////////////////////////////<hr> <tr><td colspan="2" align ="center" ><b> ${checked_region.name} </b></td></tr>
     var list_plaphone = "";
-    list_plaphone += "<tr><b>Минуты</b><br>";
+    list_plaphone += "<b>Минуты</b><br>";
     for (x in checked_region.plaphone.mins) list_plaphone += `${checked_region.plaphone.mins[x][0]} минут - ${checked_region.plaphone.mins[x][1]} рублей<br>`;
-    list_plaphone += "<tr><b>Интернет</b><br>";
+    list_plaphone += "<b>Интернет</b><br>";
     for (x in checked_region.plaphone.gbites) list_plaphone += `${checked_region.plaphone.gbites[x][0]} ГБ - ${checked_region.plaphone.gbites[x][1]} рублей<br>`;
 
 
-    var text_of_yota_newcombine_plaphone = `<tbody> <tr><tr><hr></tr>
-<tr><b>${checked_region.name}</b></tr><br> 
-${list_plaphone}<br></tr>
-<tr><b>Опция БМП</b><br> 
-Безлимитные Мобильные приложения<br>
-Вконтакте, Одноклассники, Facebook, Instagram, Twitter: по ${checked_region.plaphone.social} руб.<br>
-Skype, Viber, Whatsapp: по ${checked_region.plaphone.messenger} руб.<br>
-Youtube: ${checked_region.plaphone.youtube} руб.<br>
-</tr><br>
-<tr><b>Опции</b><br>
-Доп. пакет 100 минут: ${checked_region.voice_add_100} руб.<br>
-Доп. пакет 5 Гб: ${checked_region.gb_add_5} руб.<br>
-Пакет SMS: ${checked_region.sms_base} руб.</tr><br> 
-<tr><b>Дополнительно</b><br>
-SMS/MMS (поштучно, руб.): ${checked_region.sms_over_pack} руб.<br>
-Стоимость минуты сверх пакета (руб.): ${checked_region.min_over_pack} руб</tr><br> 
-</tr></tbody>`;
+    var text_of_yota_newcombine_plaphone = `<table style="width: 700px;"  border="0" cellpadding="0" cellspacing="0"><colgroup><col style="width: 25%;"><col style="width: 50%;"><col style="width: 25%;"></colgroup><tbody>
+ <tr><td colspan="2"  align ="center"><b> ${checked_region.name} </b></td></tr>
+   <tr>
+    <td width="100" valign="top"> ${list_plaphone} </td>
+    <td  valign="top">
+
+            <table style="width: 300px;"  border="0" cellpadding="0" cellspacing="0"><colgroup><col style="width: 75%;"><col style="width: 25%;"></colgroup>  <tbody>   
+            <tr><td colspan="2" align ="center"><b>Безлимитные Мобильные приложения</b></td></tr>
+            <tr><td align ="left">Вконтакте, Одноклассники, Facebook, Instagram, Twitter:</td> <td align ="right" >по ${checked_region.plaphone.social} руб. </td></tr>
+            <tr><td align ="left">Skype, Viber, Whatsapp:</td>  <td align ="right" >по ${checked_region.plaphone.messenger} руб.</td></tr> 
+            <tr><td align ="left">Youtube:</td>  <td align ="right" >${checked_region.plaphone.youtube} руб.</td></tr> 
+            <br><tr><td colspan="2" align ="center"><b>Опции</b></td></tr> 
+            <tr><td align ="left">Доп. пакет 100 минут:</td>  <td align ="right" >${checked_region.voice_add_100} руб.</td></tr> 
+            <tr><td align ="left">Доп. пакет 5 Гб:</td>  <td align ="right" >${checked_region.gb_add_5} руб.</td></tr> 
+            <tr><td align ="left">Пакет SMS:</td>  <td align ="right" >${checked_region.sms_base} руб.</td></tr>  
+            <tr><td colspan="2" align ="center"><b>Дополнительно</b></td></tr> 
+            <tr><td align ="left">SMS/MMS (поштучно, руб.):</td>  <td align ="right" >${checked_region.sms_over_pack} руб.</td></tr> 
+            <tr><td align ="left">Стоимость минуты сверх пакета (руб.): </td>  <td align ="right" >${checked_region.min_over_pack} руб.</td></tr> 
+            </tbody></table>
+    
+    </td>
+    <td width="100" valign="top" ><div align="center"><b>Доставка:</b><br></div> ${cur_region_teriff.dostavka} </td>
+    </tr></tbody></table>`;
 yota_newcombine_plaphone.innerHTML = text_of_yota_newcombine_plaphone;
 
 
     ////////////////////////////////////////////////////////////////
     var list_tabt = "";
-    list_tabt += "<tr><b>Минуты</b><br>";
+    list_tabt += "<b>Минуты</b><br>";
     for (x in checked_region.tabt.mins) list_tabt += `${checked_region.tabt.mins[x][0]} минут - ${checked_region.tabt.mins[x][1]} рублей<br>`;
-    list_tabt += "<tr><b>Интернет</b><br>";
+    list_tabt += "<b>Интернет</b><br>";
     for (x in checked_region.tabt.gbites) list_tabt += `${checked_region.tabt.gbites[x][0]} ГБ - ${checked_region.tabt.gbites[x][1]} рублей<br>`;
 
 
-    var text_of_yota_newcombine_tabt = `<tbody> <tr><tr><hr></tr>
-<tr><b>${checked_region.name}</b></tr><br> 
-${list_tabt}<br></tr>
-<tr><b>Опция БМП</b><br> 
-Безлимитные Мобильные приложения<br>
-Вконтакте, Одноклассники, Facebook, Instagram, Twitter: по ${checked_region.tabt.social} руб.<br>
-Skype, Viber, Whatsapp: по ${checked_region.tabt.messenger} руб.<br>
-Youtube: ${checked_region.tabt.youtube} руб.<br>
-</tr><br>
-<tr><b>Опции</b><br>
-Доп. пакет 100 минут: ${checked_region.voice_add_100} руб.<br>
-Доп. пакет 5 Гб: ${checked_region.gb_add_5} руб.<br>
-Пакет SMS: ${checked_region.sms_base} руб.</tr><br> 
-<tr><b>Дополнительно</b><br>
-SMS/MMS (поштучно, руб.): ${checked_region.tabt.sms_pag} руб.<br>
-Стоимость минуты сверх пакета (руб.): ${checked_region.tabt.voice_pag} руб</tr><br> 
-</tr></tbody>`;
+    var text_of_yota_newcombine_tabt = `<table style="width: 700px;"  border="0" cellpadding="0" cellspacing="0"><colgroup><col style="width: 25%;"><col style="width: 50%;"><col style="width: 25%;"></colgroup> <tbody>
+ <tr><td colspan="2"  align ="center"><b> ${checked_region.name} </b></td></tr>
+   <tr>
+    <td width="100" valign="top"> ${list_tabt} </td>
+    <td  valign="top">
+
+            <table style="width: 300px;"  border="0" cellpadding="0" cellspacing="0"><colgroup><col style="width: 75%;"><col style="width: 25%;"></colgroup>  <tbody>   
+            <tr><td colspan="2" align ="center"><b>Безлимитные Мобильные приложения</b></td></tr>
+            <tr><td align ="left">Вконтакте, Одноклассники, Facebook, Instagram, Twitter:</td> <td align ="right" >по ${checked_region.tabt.social} руб. </td></tr>
+            <tr><td align ="left">Skype, Viber, Whatsapp:</td>  <td align ="right" >по ${checked_region.tabt.messenger} руб.</td></tr> 
+            <tr><td align ="left">Youtube:</td>  <td align ="right" >${checked_region.tabt.youtube} руб.</td></tr> 
+            <br><tr><td colspan="2" align ="center"><b>Опции</b></td></tr> 
+            <tr><td align ="left">Доп. пакет 100 минут:</td>  <td align ="right" >${checked_region.voice_add_100} руб.</td></tr> 
+            <tr><td align ="left">Доп. пакет 5 Гб:</td>  <td align ="right" >${checked_region.gb_add_5} руб.</td></tr> 
+            <tr><td align ="left">Пакет SMS:</td>  <td align ="right" >${checked_region.sms_base} руб.</td></tr>  
+            <tr><td colspan="2" align ="center"><b>Дополнительно</b></td></tr> 
+            <tr><td align ="left">SMS/MMS (поштучно, руб.):</td>  <td align ="right" >${checked_region.tabt.sms_pag} руб.</td></tr> 
+            <tr><td align ="left">Стоимость минуты сверх пакета (руб.): </td>  <td align ="right" >${checked_region.tabt.voice_pag} руб.</td></tr> 
+            </tbody></table>
+    
+    </td>
+    <td width="100" valign="top" ><div align="center"><b>Доставка:</b><br></div> ${cur_region_teriff.dostavka_t} </td>
+    </tr></tbody></table>`;
     yota_newcombine_tabt.innerHTML = text_of_yota_newcombine_tabt;
 
 
 }
+
+
+//TODO Отображение условий в домашнем регионе и нет для конструторов
+function VoiceTariffs(type, mins) {
+
+
+    var textVoiceSMS = document.getElementById("id-Тарифы[Тест]-СтоимостьвызововиSMS_"+type).nextElementSibling;
+    var textUslugi = document.getElementById("id-Тарифы[Тест]-Дополнительныеуслуги_"+type).nextElementSibling;
+    textVoiceSMS.innerHTML = ""; textUslugi.innerHTML = "";
+    var node = document.createElement('p');
+    var node2 = document.createElement('p');
+    gcheck = document.querySelectorAll('input[type="radio"][name="radio_trafic_'+type+']:checked');        //Выбрано среди трафика
+    mcheck = document.querySelectorAll('input[type="radio"][name="radio_minute_'+type+']:checked');        //Выбрано среди минут
+
+
+
+    var texthtml = "";
+    var texthtml2 = "";
+    var dostavka = (type === type_lego[0]) ? cur_region_teriff.dostavka : cur_region_teriff.dostavka_t;
+    texthtml = `<div class="table-wrap" style=""><table class="relative-table confluenceTable" style="width: 25%;"><colgroup><col style="width: 75%;"><col style="width: 25%;"></colgroup><tbody>`;
+    texthtml2 = texthtml;
+    if (type === type_lego[0]) {
+
+        if (mins === "0") {
+            texthtml += `
+                    <tr><td class="confluenceTd">Исходящие в домашний регион на других операторов: </td><td class="confluenceTd">${cur_region_teriff.pag_voice_inbound} руб./мин.</td></tr>
+                    <tr><td class="confluenceTd">Исходящие в другой регион на других операторов: </td><td class="confluenceTd">${cur_region_teriff.pag_voice} руб./мин.</td></tr>
+                    <tr><td class="confluenceTd">Вызовы на Yota по РФ: </td><td class="confluenceTd">${cur_region_teriff.pag_voice_inbound} руб./шт.</td></tr> 
+                    <tr><td class="confluenceTd">Входящие вызовы (в домашнем регионе): </td><td class="confluenceTd"> Бесплатные </td></tr>
+                    <tr><td class="confluenceTd">Входящие вызовы (вне домашнего региона): </td><td class="confluenceTd">${cur_region_teriff.pag_voice} руб./мин.</td></tr>
+                    <tr><td class="confluenceTd">Исходящие SMS сообщения по РФ (без опции): </td><td class="confluenceTd">${cur_region_teriff.pag_sms} руб./шт.</td></tr>
+                    <tr><td class="confluenceTd" colspan="2">При подключении «дополнительных 100 минут» звонки Yota-Yota становятся бесплатными и не расходуют пакет минут, вся тарификация - как при активном пакете </td> `;
+        } else {
+            texthtml += `
+                    <tr><td class="confluenceTd">Стоимость минуты сверх пакета на всех операторов РФ: </td><td class="confluenceTd">${cur_region_teriff.min_over_pack} руб./мин.</td></tr> 
+                    <tr><td class="confluenceTd">Вызовы на Yota по РФ: </td><td class="confluenceTd"> Не тарифицируются </td></tr> 
+                    <tr><td class="confluenceTd">Входящие вызовы: </td><td class="confluenceTd"> Бесплатные </td></tr>
+                    <tr><td class="confluenceTd">Исходящие SMS сообщения по РФ (без опции): </td><td class="confluenceTd">${cur_region_teriff.sms_over_pack} руб./шт.</td></tr> `;
+        }
+    } else if (type === type_lego[1]) {
+
+        if (mins === "0") {
+            texthtml += `
+                    <tr><td class="confluenceTd">Стоимость минуты на всех операторов РФ: </td><td class="confluenceTd">${cur_region_teriff.tabt.voice_pag} руб./мин.</td></tr> 
+                    <tr><td class="confluenceTd">Вызовы на Yota по РФ: </td><td class="confluenceTd">${cur_region_teriff.tabt.voice_pag} руб./мин.</td></tr> 
+                     <tr><td class="confluenceTd" colspan="2">Входящие вызовы в любом регионе (кроме Республики Крым и г. Севастополя) — бесплатны. </td> 
+                    <tr><td class="confluenceTd">Исходящие SMS сообщения по РФ (без опции): </td><td class="confluenceTd">${cur_region_teriff.tabt.sms_pag} руб./шт.</td></tr>
+                    <tr><td class="confluenceTd" colspan="2">При подключении «дополнительных 100 минут» вся тарификация - как при активном пакете </td>  `;
+        } else {
+            texthtml += `
+                    <tr><td class="confluenceTd">Стоимость минуты сверх пакета на всех операторов РФ: </td><td class="confluenceTd">${cur_region_teriff.tabt.voice_pag} руб./мин.</td></tr> 
+                    <tr><td class="confluenceTd">Вызовы на Yota по РФ: </td><td class="confluenceTd"> Не тарифицируются </td></tr> 
+                     <tr><td class="confluenceTd" colspan="2">Входящие вызовы в любом регионе (кроме Республики Крым и г. Севастополя) — бесплатны. </td> 
+                    <tr><td class="confluenceTd">Исходящие SMS сообщения по РФ (без опции): </td><td class="confluenceTd">${cur_region_teriff.tabt.sms_pag} руб./шт.</td></tr> `;
+        }
+    }
+
+    // texthtml2 += `
+    //                 <tr><td class="confluenceTd">Дополнительный пакет 100 минут: </td><td class="confluenceTd">${cur_region_teriff.voice_add_100} руб.</td></tr>
+    //                 <tr><td class="confluenceTd">Дополнительный пакет 5 Гб: </td><td class="confluenceTd"> ${cur_region_teriff.gb_add_5} руб.</td></tr>
+    //                 <tr><td class="confluenceTd">Пакет SMS: </td><td class="confluenceTd"> ${cur_region_teriff.sms_base} руб. </td></tr>
+    //                 <tr><td class="confluenceTd" colspan="2"><b>Безлимитные приложения: <br></b>
+    //                 Вконтакте, Одноклассники, Facebook, Instagram, Twitter: по ${cur_region_teriff[type].social} руб.<br>
+    //                 Skype, Viber, Whatsapp: по ${cur_region_teriff[type].messenger} руб.<br>
+    //                 Youtube: ${cur_region_teriff[type].youtube} руб.<br></td></tr>
+    //                 <br><tr><td class="confluenceTd" colspan="2"><b>Доставка: <br></b>
+    //                 ${dostavka}<br></td></tr> `;
+
+
+
+
+    texthtml += `</tbody></table></div>`;
+    // texthtml2 += `</tbody></table></div>`;
+    node.innerHTML = texthtml;
+    textVoiceSMS.appendChild(node);
+    // node2.innerHTML = texthtml2;
+    // textUslugi.appendChild(node2);
+
+
+
+}
+
+
 
 function initOotRussiaRates(checked_contry) {
 
