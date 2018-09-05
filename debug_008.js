@@ -128,8 +128,18 @@ function importRateRussia(jsondatas) {
         }
     });
     customTemplates.setChoices(choices1212, 'value', 'label', 0);
+
     checkParams(choiseRegionbylink);
+
+
+
+
+
+
+
 }
+
+
 
 function importRateOutRussia(jsondatas) {
 
@@ -496,6 +506,7 @@ function checkParams(callback, callback2) {
                 elm.innerHTML = "Реклама Yota вместо логотипа";
                 document.querySelector('#header .aui-header').style.backgroundColor  = "#00aeef";
                  document.querySelector('#header').style.backgroundColor  = "#00aeef";
+                $('html, body').animate({ scrollTop: $(".yota_newcombine_search_alt").offset().top }, 500); // анимируем скроолинг к элементу scroll_el
 
             }, 1000 );
         }
@@ -1645,6 +1656,30 @@ function initRoamingRates(checked_contry) {
 
 
 
+
+
+
+
+function KeyPress(e) {
+    var evtobj = window.event? event : e
+    if ((evtobj.keyCode === 70 && evtobj.ctrlKey) || (evtobj.keyCode === 70)) {
+        customTemplates.showDropdown();
+
+        setTimeout( function(){
+            $('input.choices__input.choices__input--cloned').focus();
+        }, 300 );
+
+
+    }
+
+}
+
+
+
+
+
+
+document.onkeydown = KeyPress;
 document.onreadystatechange = function() {
     if (document.readyState === 'complete') {
 
