@@ -468,7 +468,7 @@ function ToProcessText(cur_mCount, cur_mPrice, cur_gCount, cur_gPrice, cur_sum, 
 }
 
 // window.addEventListener("load", function(event) {
-function checkParams(callback) {
+function checkParams(callback, callback2) {
     console.log("All resources finished loading!");
     var params = window
         .location
@@ -484,13 +484,30 @@ function checkParams(callback) {
             {}
         );
     if (params['region'] !== undefined) {
-        //выбрать регион автоматом
-//mf_id_ratio
-        getJSON(mf_id_ratio, callback, params['region']);
-// выведет в консоль значение  GET-параметра data
+
+        getJSON(mf_id_ratio, callback, params['region'], callback2);
+        if (params['random'] !== undefined && params['random'] === "true") {
+
+            setTimeout( function(){
+                callbackLink(null);
+            }, 1000 );
+        }
     }
 // });
 }
+
+function callbackLink(eto) {
+    for (x in type_lego)
+    {
+        let type = type_lego[x];
+        let mins = legorates[type].mins;
+        let gbites = legorates[type].gbites;
+        randomLegoInfo("update", type, mins.length , gbites.length); 
+    }
+
+
+}
+
 class CheckedRegion {
     constructor(id) {  this.id = id;   }
     get getRegion() { return this.id; }
