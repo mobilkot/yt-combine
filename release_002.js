@@ -1,4 +1,4 @@
-﻿var customTemplates;
+var customTemplates;
 var searchOutRussia;
 var searchRoaming;
 var jsondata = {};
@@ -95,14 +95,14 @@ class Initialization {
 }
 
 //Получение JSON
-function getJSON(link, callback){
+function getJSON(link, callback, params){
 
     var reqw = window.XMLHttpRequest ? new XMLHttpRequest() : new ActiveXObject('Microsoft.XMLHTTP');
     reqw.open( 'GET', link , true );
     reqw.responseType = 'json';
     reqw.onreadystatechange = function () {
 
-        if ( reqw.readyState === 4 && reqw.status === 200)   callback.call(reqw.response);
+        if ( reqw.readyState === 4 && reqw.status === 200)   callback.call(reqw.response, params);
     };
     reqw.send( null );
 }
@@ -128,6 +128,7 @@ function importRateRussia(jsondatas) {
         }
     });
     customTemplates.setChoices(choices1212, 'value', 'label', 0);
+    checkParams(choiseRegionbylink);
 }
 
 function importRateOutRussia(jsondatas) {
@@ -265,15 +266,7 @@ function returnInfoBlock(type, text, title = "") {
                                     <input data-name="sk" id="app-sk_${type}" class="input_app-sk" type="checkbox" name="select_apps_${type}" value="6" onchange='updateLegoInfo(this, "${type}")'">  <label for="app-sk_${type}" class="layout-buttons"><span>   <div data-name="skype" class="b2c-voice-collect__app js-b2c-voice-collect-app b2c-voice-collect__app_active"> <div class="b2c-voice-collect__app-icon"><svg width="35" height="40" viewBox="0 -5 40 40" xmlns="http://www.w3.org/2000/svg"> <circle class="enableflow" fill="#888888" cx="20.5" cy="20.5" r="60"></circle> <circle class="activated" fill="#5DC0FF" cx="20.5" cy="20.5" r="60"></circle> <path d="M31.05408 21.88594c.2-1.2.3-2.5.1-3.6-.9-5.4-6-9.3-11.5-8.5-.3.1-.6 0-.9-.1-2.3-1.2-5.1-.8-7 1-1.8 1.8-2.3 4.6-1.1 6.9.1.2.1.4.1.7-.1.6-.1 1.1-.1 1.7 0 .3 0 .7.1 1 .6 5.9 6 10 11.9 9.1.1 0 .4 0 .5.1 1.1.6 2.3.7 3.5.5 3.9-.7 6.1-4.7 4.5-8.4-.1-.1-.1-.2-.1-.4zm-7.4 4.8c-1.8.5-3.6.5-5.3 0-1.6-.5-2.8-1.5-3.3-3.1-.4-1.2.4-2 1.6-1.9.5.1.9.4 1.1.8.1.3.3.5.4.8.4.9 1.2 1.4 2.1 1.5.8.1 1.6 0 2.3-.3.3-.1.6-.3.7-.6.6-.7.4-1.6-.2-2.1-.7-.5-1.5-.7-2.3-.8-1.1-.2-2.3-.5-3.3-.9-1.1-.5-2-1.2-2.3-2.4-.4-1.5.1-2.6 1.2-3.6 1-.8 2.2-1.1 3.5-1.2h.9c1.2 0 2.3.1 3.4.7.8.4 1.5.9 1.8 1.8.2.4.3.9.1 1.3-.1.5-.5.9-1 1-.6.1-1.1 0-1.5-.5-.1-.2-.4-.5-.5-.8-.5-.8-1.2-1.3-2.2-1.3-.4 0-.9 0-1.3.1s-.7.3-1.1.5c-.5.5-.5 1.2.1 1.7.4.3.8.4 1.3.6 1.1.3 2.2.5 3.3.8.6.1 1.2.4 1.7.7 2.5 1.2 2.3 4.2 1 5.8-.5.6-1.3 1.1-2.2 1.4z" fill="#FFF"></path> </svg>
                                         <div class="b2c-voice-collect__app-price" data-name="app-messenger_${type}" data-for="sk_${type}"   tooltip-position='left'> 20&#8381; </div>  </div></div></span></label>
                                 </div>
-                                <div class="divTableCell">
-                                    <input data-name="tg" id="app-tg_${type}" class="input_app-tg" type="checkbox" name="select_apps_off_${type}" value="11" onchange='updateLegoInfo(this, "${type}")'">  <label for="app-tg_${type}" class="layout-buttons"><span>   <div data-name="telegram" class="b2c-voice-collect__app_tg js-b2c-voice-collect-app"> <div class="b2c-voice-collect__app-icon_tg"><svg width="35" height="40" viewBox="0 -5 40 40" xmlns="http://www.w3.org/2000/svg">   <circle class="enableflow" fill="#888888" cx="20.5" cy="20.5" r="60"></circle> <circle class="activated" fill="#64ADEB" cx="20.5" cy="20.5" r="60"></circle> <path d="M27.31287 13.03854c-.2 0-.5.1-.7.2-4.8 1.7-9.6 3.4-14.3 5-.6.2-1.2.5-1.3 1.3-.1.7.4 1.2.9 1.6.3.2.5.3.8.4 1.4.7 2.7 1.4 4.1 2 .7.3 1.2.8 1.5 1.5.8 1.6 1.6 3.3 2.4 4.9.3.6.8 1.2 1.6 1.1.8-.1 1.1-.7 1.3-1.4 1.7-4.7 3.3-9.5 5-14.2.1-.4.3-.7.2-1.1.1-.9-.6-1.5-1.5-1.3z" fill="#FCFDFD"></path> </svg>  <div class="b2c-voice-collect__app-price_tg" data-name="tg"   tooltip-position='left'>
-                                            <svg width="35" height="15" viewBox="17 3 25 25" xmlns="http://www.w3.org/2000/svg">  <g xmlns="http://www.w3.org/2000/svg" transform=" scale(0.0045)" fill="red" stroke="none">
-                                                <path d="M5961 6330 c-18 -4 -409 -386 -627 -612 -34 -35 -99 -100 -145 -145 -46 -45 -109 -108 -140 -140 -31 -32 -67 -68 -80 -80 -13 -11 -86 -83 -161 -160 -75 -76 -317 -318 -538 -538 l-400 -399 0 -413 c0 -402 1 -413 20 -425 11 -7 20 -16 20 -20 0 -3 90 -95 201 -205 111 -109 206 -203 213 -210 139 -143 190 -191 201 -187 7 3 12 -1 12 -9 -2 -18 131 -160 143 -152 6 3 7 -1 4 -9 -3 -9 -3 -16 1 -16 4 0 88 81 186 179 138 138 178 183 173 198 -5 14 -4 15 4 4 8 -11 26 1 86 60 42 41 74 80 71 87 -3 7 0 10 5 7 11 -7 97 71 89 80 -48 52 -563 565 -568 565 -4 0 -15 13 -24 30 -20 33 -14 54 22 80 12 8 21 19 21 25 0 6 13 19 30 28 18 11 27 23 23 32 -4 11 -1 13 13 8 13 -5 16 -3 11 10 -4 11 -1 17 8 17 20 0 52 33 47 48 -2 8 3 10 14 5 14 -5 16 -3 11 11 -4 10 -3 15 3 11 6 -3 13 0 16 8 3 8 15 17 26 20 11 3 17 10 13 16 -3 6 -1 11 4 11 16 0 51 33 51 47 0 7 7 13 15 13 9 0 12 6 8 17 -4 10 -2 14 5 9 14 -8 106 80 97 94 -3 6 1 7 10 4 11 -5 18 0 22 15 3 11 10 21 16 21 16 0 111 103 108 117 -1 8 4 10 14 7 11 -5 18 0 22 15 3 11 9 21 14 21 12 0 109 97 109 110 0 5 5 9 12 8 7 -2 17 7 23 20 5 12 13 22 16 22 12 0 149 137 149 149 0 6 4 11 10 11 15 0 50 42 43 53 -4 6 -1 7 6 2 13 -7 51 26 51 45 0 5 5 10 11 10 11 0 39 24 39 34 0 9 59 66 69 66 5 0 13 9 16 20 4 11 11 18 16 15 5 -4 9 1 9 9 0 9 4 16 10 16 5 0 25 17 45 38 75 79 89 92 97 92 5 0 6 5 3 10 -3 6 0 10 8 10 22 0 41 27 25 33 -9 4 -9 6 2 6 22 1 73 48 65 60 -4 7 0 8 10 5 11 -5 18 0 22 15 3 11 12 21 20 21 8 0 11 5 8 10 -3 6 -1 10 5 10 14 0 79 67 72 75 -3 3 0 5 6 5 5 0 17 2 24 5 9 4 72 -53 168 -149 84 -85 157 -153 162 -150 4 3 8 -1 8 -9 0 -7 14 -27 30 -43 17 -16 59 -58 93 -93 34 -35 73 -73 86 -85 14 -11 38 -35 53 -52 l29 -30 50 47 c36 34 48 51 43 65 -5 15 -4 16 4 4 9 -11 35 10 138 114 100 101 124 130 113 138 -11 8 -10 9 4 4 14 -5 47 21 133 107 63 63 114 120 114 128 -1 8 -19 28 -40 44 -21 17 -39 35 -40 42 0 6 -4 13 -10 15 -10 3 -141 129 -176 169 -11 13 -53 55 -92 92 -40 38 -72 70 -72 72 0 7 -145 145 -152 145 -5 0 -8 6 -8 13 0 8 -10 19 -23 26 -12 6 -31 25 -42 42 -11 16 -26 27 -33 24 -7 -3 -11 -1 -8 4 3 4 -9 22 -27 39 -17 16 -45 44 -60 61 l-29 31 -256 0 c-142 0 -319 2 -394 3 -75 1 -146 0 -157 -3z"/>
-                                                <path d="M7719 4775 c-167 -168 -306 -308 -309 -311 -2 -2 135 -144 305 -314 l310 -310 -828 -827 -827 -828 -310 310 -310 310 -305 -305 c-168 -168 -305 -309 -305 -315 0 -6 183 -193 408 -418 l407 -407 420 0 420 0 1028 1028 1027 1028 0 425 0 424 -408 408 c-224 224 -410 407 -413 407 -3 0 -143 -137 -310 -305z"/>
-                                                <path d="M5910 4285 l-415 -415 423 -422 422 -423 418 418 417 417 -420 420 c-231 231 -422 420 -425 420 -3 0 -192 -187 -420 -415z"/>
-                                            </g> </svg>
-                                        </div> </div> </div></span></label>
-                                </div>
+
                             </div>
                             <div class="divTableRow">
                                 <div class="divTableCell">
@@ -329,11 +322,6 @@ function returnInfoBlock(type, text, title = "") {
         for (x in listTemplates) {
             if (this.value === x) value.html(`${listTemplates[x].name}`);
             PhraseUpdate(null);
-        }
-        if (this.value === "1") {
-
-
-
         }
     });
 
@@ -466,6 +454,51 @@ function ToProcessText(cur_mCount, cur_mPrice, cur_gCount, cur_gPrice, cur_sum, 
 
     };
     return tmpl(data);
+
+
+
+
+
+}
+
+// window.addEventListener("load", function(event) {
+function checkParams(callback) {
+    console.log("All resources finished loading!");
+    var params = window
+        .location
+        .search
+        .replace('?', '')
+        .split('&')
+        .reduce(
+            function (p, e) {
+                var a = e.split('=');
+                p[decodeURIComponent(a[0])] = decodeURIComponent(a[1]);
+                return p;
+            },
+            {}
+        );
+    if (params['region'] !== undefined) {
+        //выбрать регион автоматом
+
+        getJSON(mf_id_ratio, callback, params['region']);
+// выведет в консоль значение  GET-параметра data
+    }
+// });
+}
+class CheckedRegion {
+    constructor(id) {  this.id = id;   }
+    get getRegion() { return this.id; }
+    set setRegion(newValue) {  this.id = newValue; }
+}
+var checkedRegionsId;
+function choiseRegionbylink(region){
+    var obj = this.megafon_id;
+    var reg1 = obj.find(x => x.region_id === region).id;
+
+    checkedRegionsId = new CheckedRegion(reg1);
+    console.log( checkedRegionsId.getRegion);
+    customTemplates.setValueByChoice(checkedRegionsId.getRegion);
+    initLegoRates(checkedRegionsId.getRegion, initOtherRates);
 }
 
 
@@ -563,7 +596,7 @@ document.addEventListener('DOMContentLoaded', function() {
         initRoamingRatesProviders(e.detail.value, initRoamingRates);
     });
 
-
+    if (checkedRegionsId!==undefined) customTemplates.setValueByChoice(checkedRegionsId.getRegion);
 
 
 });
