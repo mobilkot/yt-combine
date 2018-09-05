@@ -489,7 +489,14 @@ function checkParams(callback, callback2) {
         if (params['random'] !== undefined && params['random'] === "true") {
 
             setTimeout( function(){
-                callbackLink(null);
+                callbackLink();
+                var elm = document.querySelector('span[class="aui-header-logo-device"]');
+                elm.className = "new_aui-header-logo-device";
+                elm.innerHTML = "Реклама Yota вместо логотипа";
+
+                 document.querySelector('#header').style.backgroundColor  = "#00aeef";
+                 document.querySelector('.new_aui-header-logo-device').style.fontSize  = "12px";
+
             }, 1000 );
         }
     }
@@ -502,7 +509,7 @@ function callbackLink(eto) {
         let type = type_lego[x];
         let mins = legorates[type].mins;
         let gbites = legorates[type].gbites;
-        randomLegoInfo("update", type, mins.length , gbites.length); 
+        randomLegoInfo("update", type, mins.length , gbites.length);
     }
 
 
