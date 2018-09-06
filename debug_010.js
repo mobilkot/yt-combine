@@ -644,7 +644,7 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 function VisibleClearBody(type) {
-    returnInfoBlock("clear", "");
+
     var gchecks = document.querySelectorAll('input[type="radio"][name="radio_trafic_'+type+'"]');
     var mchecks = document.querySelectorAll('input[type="radio"][name="radio_minute_'+type+'"]');
     var appitems = document.querySelectorAll('input[type="checkbox"][name="select_apps_'+type+'"]');
@@ -1084,10 +1084,12 @@ function initLegoRates(region, callback) {
     var item = map.get(region);
     cur_region_teriff = item;
 
-    //"warning":   "tip":   "note":   "info": "clear"
+
     if (cur_region_teriff.have_modem === "false" && cur_region_teriff.have_voice === "false")  returnInfoBlock("warning", "Регион не запущен");
     else if (cur_region_teriff.have_voice === "false")  returnInfoBlock("warning", "Голос не запущен");
     else if (cur_region_teriff.have_modem === "false")  returnInfoBlock("warning", "Модем не запущен");
+    else returnInfoBlock("clear", "");
+
 
     //TODO Первоначальная инициализация и запись тарифов
     for (x in type_rates) {
@@ -1103,6 +1105,7 @@ function initLegoRates(region, callback) {
     for (x in type_lego) {
         let type = type_lego[x];
 
+
         map = new Map(jsondata[type].map(el=>[el.id,el]));
         item = map.get(region);
         cur_region_teriff[type] = item;
@@ -1111,8 +1114,9 @@ function initLegoRates(region, callback) {
         createLegoBlock(type, function () {
 
             if( cur_region_teriff.have_voice === "true") {
-                VisibleClearBody(type);
+
                 var apptype = {};
+                VisibleClearBody(type);
 
 
                 for (var key in unlimApps)  {apptype[key] = unlimApps[key];}
