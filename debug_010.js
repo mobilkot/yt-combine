@@ -188,23 +188,23 @@ function returnInfoBlock(type, text, title = "") {
 
     var htmlcode=``;
     var ttitle = ``;
-    if (title !== "") {ttitle = `<p className="title">${title}</p>`}
+    if (title !== "") {ttitle = `<p class="title">${title}</p>`}
     //<p className="title">Блаблабла</p>
     switch (type) {
         case "warning":
-            htmlcode=`<div className="confluence-information-macro confluence-information-macro-warning conf-macro output-block" data-hasbody="true" data-macro-name="warning">${ttitle}<span className="aui-icon aui-icon-small aui-iconfont-error confluence-information-macro-icon"> </span><div className="confluence-information-macro-body"><p>${text}</p></div></div>`;
+            htmlcode=`<div class="confluence-information-macro confluence-information-macro-warning conf-macro output-block" data-hasbody="true" data-macro-name="warning">${ttitle}<span class="aui-icon aui-icon-small aui-iconfont-error confluence-information-macro-icon"> </span><div class="confluence-information-macro-body"><p>${text}</p></div></div>`;
             break;
 
         case "tip":
-            htmlcode=`<div className="confluence-information-macro confluence-information-macro-tip conf-macro output-block" data-hasbody="true" data-macro-name="tip">${ttitle}<span className="aui-icon aui-icon-small aui-iconfont-approve confluence-information-macro-icon"> </span><div className="confluence-information-macro-body"><p>${text}</p></div></div>`;
+            htmlcode=`<div class="confluence-information-macro confluence-information-macro-tip conf-macro output-block" data-hasbody="true" data-macro-name="tip">${ttitle}<span class="aui-icon aui-icon-small aui-iconfont-approve confluence-information-macro-icon"> </span><div class="confluence-information-macro-body"><p>${text}</p></div></div>`;
             break;
 
         case "note":
-            htmlcode=`<div className="confluence-information-macro confluence-information-macro-note conf-macro output-block" data-hasbody="true" data-macro-name="note">${ttitle}<span className="aui-icon aui-icon-small aui-iconfont-warning confluence-information-macro-icon"> </span><div className="confluence-information-macro-body"><p>${text}</p></div></div>`;
+            htmlcode=`<div class="confluence-information-macro confluence-information-macro-note conf-macro output-block" data-hasbody="true" data-macro-name="note">${ttitle}<span class="aui-icon aui-icon-small aui-iconfont-warning confluence-information-macro-icon"> </span><div class="confluence-information-macro-body"><p>${text}</p></div></div>`;
             break;
 
         case "info":
-            htmlcode=`<div className="confluence-information-macro confluence-information-macro-information conf-macro output-block" data-hasbody="true" data-macro-name="info">${ttitle}<span className="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"> </span><div className="confluence-information-macro-body"><p>${text}</p></div></div>`;
+            htmlcode=`<div class="confluence-information-macro confluence-information-macro-information conf-macro output-block" data-hasbody="true" data-macro-name="info">${ttitle}<span class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"> </span><div class="confluence-information-macro-body"><p>${text}</p></div></div>`;
             break;
         case "clear":
             htmlcode=``;
@@ -1361,7 +1361,7 @@ SMS/MMS — ${checked_region.tab_unlim.sms_pag} руб. за штуку.<br>
     for (x in checked_region.plaphone.gbites) list_plaphone += `${checked_region.plaphone.gbites[x][0]} ГБ - ${checked_region.plaphone.gbites[x][1]} рублей<br>`;
 
 
-    var text_of_yota_newcombine_plaphone = `<table style="width: 600px;"  border="0" cellpadding="0" cellspacing="0"><colgroup><col style="width: 25%;"><col style="width: 50%;"><col style="width: 25%;"></colgroup><tbody>
+    var text_of_yota_newcombine_plaphone = `<table style="width: 800px;"  border="0" cellpadding="0" cellspacing="0"><colgroup><col style="width: 40%;"><col style="width: 60%;"><col style="width: 25%;"></colgroup><tbody>
  <tr><td colspan="2"  align ="center"><b> ${checked_region.name} </b></td></tr>
    <tr>
      <tr><td ><hr></td></tr><td width="100" valign="top"> ${list_plaphone} </td>
@@ -1369,14 +1369,17 @@ SMS/MMS — ${checked_region.tab_unlim.sms_pag} руб. за штуку.<br>
 
             <table style="width: 350px;"  border="0" cellpadding="0" cellspacing="0"><colgroup><col style="width: 75%;"><col style="width: 25%;"></colgroup>  <tbody>   
             <tr><td colspan="2" align ="center"><hr></td></tr><tr><td colspan="2" align ="center"><b>Безлимитные Мобильные приложения</b><br></td></tr>
+             <tr><td colspan="2" align ="center"><hr></td></tr> 
             <tr><td align ="left">Вконтакте, Одноклассники, Facebook, Instagram, Twitter:</td> <td align ="right" >по ${checked_region.plaphone.social} руб. </td></tr>
             <tr><td align ="left">Skype, Viber, Whatsapp:</td>  <td align ="right" >по ${checked_region.plaphone.messenger} руб.</td></tr> 
             <tr><td align ="left">Youtube:</td>  <td align ="right" >${checked_region.plaphone.youtube} руб.</td></tr> 
-            <tr><td colspan="2" align ="center"><br><br><hr></td></tr><tr><td colspan="2" align ="center"><b>Опции</b><br></td></tr> 
+            <tr><td colspan="2" align ="center"><br><br><hr></td></tr><tr><td colspan="2" align ="center"><b>Опции</b><br></td></tr>
+            <tr><td colspan="2" align ="center"><hr></td></tr> 
             <tr><td align ="left">Доп. пакет 100 минут:</td>  <td align ="right" >${checked_region.voice_add_100} руб.</td></tr> 
             <tr><td align ="left">Доп. пакет 5 Гб:</td>  <td align ="right" >${checked_region.gb_add_5} руб.</td></tr> 
             <tr><td align ="left">Пакет SMS:</td>  <td align ="right" >${checked_region.sms_base} руб.</td></tr>  
             <tr><td colspan="2" align ="center"><br><br><hr></td></tr><tr><td colspan="2" align ="center"><b>Дополнительно</b><br></td></tr> 
+             <tr><td colspan="2" align ="center"><hr></td></tr> 
             <tr><td align ="left">SMS/MMS (поштучно, руб.):</td>  <td align ="right" >${checked_region.sms_over_pack} руб.</td></tr> 
             <tr><td align ="left">Стоимость минуты сверх пакета (руб.): </td>  <td align ="right" >${checked_region.min_over_pack} руб.</td></tr> 
             </tbody></table>
@@ -1386,7 +1389,7 @@ SMS/MMS — ${checked_region.tab_unlim.sms_pag} руб. за штуку.<br>
     </tr></tbody></table>`;
 yota_newcombine_plaphone.innerHTML = text_of_yota_newcombine_plaphone;
 
-    var text_of_yota_newcombine_nullbalance_phone = `<table style="width: 200px;"  border="0" cellpadding="0" cellspacing="0"><colgroup><col style="width: 25%;"><col style="width: 50%;"><col style="width: 25%;"></colgroup><tbody>
+    var text_of_yota_newcombine_nullbalance_phone = `<table style="width: 200px;"  border="0" cellpadding="0" cellspacing="0"><colgroup><col style="width: 40%;"><col style="width: 60%;"><col style="width: 25%;"></colgroup><tbody>
  
     <td width="100" valign="top" >${cur_region_teriff.dostavka} </td>
     </tbody></table>`;
@@ -1403,7 +1406,7 @@ yota_newcombine_plaphone.innerHTML = text_of_yota_newcombine_plaphone;
     for (x in checked_region.tabt.gbites) list_tabt += `${checked_region.tabt.gbites[x][0]} ГБ - ${checked_region.tabt.gbites[x][1]} рублей<br>`;
 
 
-    var text_of_yota_newcombine_tabt = `<table style="width: 600px;"  border="0" cellpadding="0" cellspacing="0"><colgroup><col style="width: 25%;"><col style="width: 50%;"><col style="width: 25%;"></colgroup> <tbody>
+    var text_of_yota_newcombine_tabt = `<table style="width: 800px;"  border="0" cellpadding="0" cellspacing="0"><colgroup><col style="width: 40%;"><col style="width: 60%;"><col style="width: 25%;"></colgroup> <tbody>
  <tr><td colspan="2"  align ="center"><b> ${checked_region.name} </b></td></tr>
    <tr>
     <td width="100" valign="top"> ${list_tabt} </td>
@@ -1411,14 +1414,17 @@ yota_newcombine_plaphone.innerHTML = text_of_yota_newcombine_plaphone;
 
             <table style="width: 350px;"  border="0" cellpadding="0" cellspacing="0"><colgroup><col style="width: 75%;"><col style="width: 25%;"></colgroup>  <tbody>   
              <tr><td colspan="2" align ="center"><hr></td></tr><tr><td colspan="2" align ="center"><b>Безлимитные Мобильные приложения</b><br></td></tr>
+              <tr><td colspan="2" align ="center"><hr></td></tr> 
             <tr><td align ="left">Вконтакте, Одноклассники, Facebook, Instagram, Twitter:</td> <td align ="right" >по ${checked_region.tabt.social} руб. </td></tr>
             <tr><td align ="left">Skype, Viber, Whatsapp:</td>  <td align ="right" >по ${checked_region.tabt.messenger} руб.</td></tr> 
             <tr><td align ="left">Youtube:</td>  <td align ="right" >${checked_region.tabt.youtube} руб.</td></tr> 
              <tr><td colspan="2" align ="center"><br><br><hr></td></tr><tr><td colspan="2" align ="center"><b>Опции</b><br></td></tr> 
+              <tr><td colspan="2" align ="center"><hr></td></tr> 
             <tr><td align ="left">Доп. пакет 100 минут:</td>  <td align ="right" >${checked_region.voice_add_100} руб.</td></tr> 
             <tr><td align ="left">Доп. пакет 5 Гб:</td>  <td align ="right" >${checked_region.gb_add_5} руб.</td></tr> 
             <tr><td align ="left">Пакет SMS:</td>  <td align ="right" >${checked_region.sms_base} руб.</td></tr>  
              <tr><td colspan="2" align ="center"><br><br><hr></td></tr><tr><td colspan="2" align ="center"><b>Дополнительно</b><br></td></tr> 
+              <tr><td colspan="2" align ="center"><hr></td></tr> 
             <tr><td align ="left">SMS/MMS (поштучно, руб.):</td>  <td align ="right" >${checked_region.tabt.sms_pag} руб.</td></tr> 
             <tr><td align ="left">Стоимость минуты сверх пакета (руб.): </td>  <td align ="right" >${checked_region.tabt.voice_pag} руб.</td></tr> 
             </tbody></table>
