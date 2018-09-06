@@ -128,7 +128,7 @@ function importRateRussia(jsondatas) {
         }
     });
     customTemplates.setChoices(choices1212, 'value', 'label', 0);
-
+    checkParams(choiseRegionbylink);
 
 
 }
@@ -179,7 +179,7 @@ function importRateOutRussia(jsondatas) {
 
 
 $( window  ).ready(function() {
-    checkParams(choiseRegionbylink);
+    // checkParams(choiseRegionbylink);
     console.log("loaded");
 });
 
