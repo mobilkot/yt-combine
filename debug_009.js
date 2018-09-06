@@ -129,12 +129,6 @@ function importRateRussia(jsondatas) {
     });
     customTemplates.setChoices(choices1212, 'value', 'label', 0);
 
-    checkParams(choiseRegionbylink);
-
-
-
-
-
 
 
 }
@@ -180,10 +174,14 @@ function importRateOutRussia(jsondatas) {
         }
     });
     searchRoaming.setChoices(listRoaming, 'value', 'label', 0);
+
 }
 
 
-
+$( window  ).ready(function() {
+    checkParams(choiseRegionbylink);
+    console.log("loaded");
+});
 
 
 function returnInfoBlock(type, text, title = "") {
@@ -208,10 +206,13 @@ function returnInfoBlock(type, text, title = "") {
         case "info":
             htmlcode=`<div className="confluence-information-macro confluence-information-macro-information conf-macro output-block" data-hasbody="true" data-macro-name="info">${ttitle}<span className="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"> </span><div className="confluence-information-macro-body"><p>${text}</p></div></div>`;
             break;
+        case "clear":
+            htmlcode=``;
+            break;
 
     }
-
-  return htmlcode;
+    var alert = document.getElementById('yota_newcombine_notebnote');
+    alert.innerHTML = htmlcode;
 }
 
 
@@ -508,7 +509,7 @@ function checkParams(callback, callback2) {
                  document.querySelector('#header').style.backgroundColor  = "#00aeef";
                 $('html, body').animate({ scrollTop: $(".yota_newcombine_search_alt").offset().top }, 500); // анимируем скроолинг к элементу scroll_el
 
-            }, 1000 );
+            }, 500 );
         }
     }
 // });
@@ -641,7 +642,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 });
+
 function VisibleClearBody(type) {
+    returnInfoBlock("clear", "");
     var gchecks = document.querySelectorAll('input[type="radio"][name="radio_trafic_'+type+'"]');
     var mchecks = document.querySelectorAll('input[type="radio"][name="radio_minute_'+type+'"]');
     var appitems = document.querySelectorAll('input[type="checkbox"][name="select_apps_'+type+'"]');
@@ -1073,6 +1076,7 @@ function addRow(type, region, objRate) {
 var cur_region_teriff = {};
 
 //ЗАполнение конструкторных тарифов
+//TODO: уведомления
 function initLegoRates(region, callback) {
 
 
@@ -1080,13 +1084,21 @@ function initLegoRates(region, callback) {
     var item = map.get(region);
     cur_region_teriff = item;
 
+    //"warning":   "tip":   "note":   "info": "clear"
+    if (cur_region_teriff.have_modem === "false" && cur_region_teriff.have_voice === "false")  returnInfoBlock("warning", "Регион не запущен");
+    else if (cur_region_teriff.have_voice === "false")  returnInfoBlock("warning", "Голос не запущен");
+    else if (cur_region_teriff.have_modem === "false")  returnInfoBlock("warning", "Модем не запущен");
 
     //TODO Первоначальная инициализация и запись тарифов
     for (x in type_rates) {
         let name = type_rates[x];
-        map = new Map(jsondata[name].map(el=>[el.id,el]));
-        item = map.get(region);
-        cur_region_teriff[name] = item;
+        map = new Map(jsondata[name].map(el => [el.id, el]));
+        try {
+            item = map.get(region);
+            cur_region_teriff[name] = item;
+        } catch (e) {
+            cur_region_teriff[name] = "Nodata";
+        }
     }
     for (x in type_lego) {
         let type = type_lego[x];
@@ -1146,6 +1158,8 @@ function initOtherRates(checked_region) {
     var yota_newcombine_unlim_phone_archived = document.getElementById('yota_newcombine_unlim_phone_archived');
     var yota_newcombine_plaphone = document.getElementById('yota_newcombine_plaphone');
     var yota_newcombine_tabt = document.getElementById('yota_newcombine_tabt');
+    var yota_newcombine_nullbalance_phone = document.getElementById('yota_newcombine_nullbalance_phone');
+    var yota_newcombine_nullbalance_tab = document.getElementById('yota_newcombine_nullbalance_tab');
 
 
     if (checked_region.have_modem ===  "false" && checked_region.have_voice ===  "false") {
@@ -1347,30 +1361,38 @@ SMS/MMS — ${checked_region.tab_unlim.sms_pag} руб. за штуку.<br>
     for (x in checked_region.plaphone.gbites) list_plaphone += `${checked_region.plaphone.gbites[x][0]} ГБ - ${checked_region.plaphone.gbites[x][1]} рублей<br>`;
 
 
-    var text_of_yota_newcombine_plaphone = `<table style="width: 700px;"  border="0" cellpadding="0" cellspacing="0"><colgroup><col style="width: 25%;"><col style="width: 50%;"><col style="width: 25%;"></colgroup><tbody>
+    var text_of_yota_newcombine_plaphone = `<table style="width: 600px;"  border="0" cellpadding="0" cellspacing="0"><colgroup><col style="width: 25%;"><col style="width: 50%;"><col style="width: 25%;"></colgroup><tbody>
  <tr><td colspan="2"  align ="center"><b> ${checked_region.name} </b></td></tr>
    <tr>
-    <td width="100" valign="top"> ${list_plaphone} </td>
+     <tr><td ><hr></td></tr><td width="100" valign="top"> ${list_plaphone} </td>
     <td  valign="top">
 
-            <table style="width: 300px;"  border="0" cellpadding="0" cellspacing="0"><colgroup><col style="width: 75%;"><col style="width: 25%;"></colgroup>  <tbody>   
-            <tr><td colspan="2" align ="center"><b>Безлимитные Мобильные приложения</b></td></tr>
+            <table style="width: 350px;"  border="0" cellpadding="0" cellspacing="0"><colgroup><col style="width: 75%;"><col style="width: 25%;"></colgroup>  <tbody>   
+            <tr><td colspan="2" align ="center"><hr></td></tr><tr><td colspan="2" align ="center"><b>Безлимитные Мобильные приложения</b><br></td></tr>
             <tr><td align ="left">Вконтакте, Одноклассники, Facebook, Instagram, Twitter:</td> <td align ="right" >по ${checked_region.plaphone.social} руб. </td></tr>
             <tr><td align ="left">Skype, Viber, Whatsapp:</td>  <td align ="right" >по ${checked_region.plaphone.messenger} руб.</td></tr> 
             <tr><td align ="left">Youtube:</td>  <td align ="right" >${checked_region.plaphone.youtube} руб.</td></tr> 
-            <br><tr><td colspan="2" align ="center"><b>Опции</b></td></tr> 
+            <tr><td colspan="2" align ="center"><br><br><hr></td></tr><tr><td colspan="2" align ="center"><b>Опции</b><br></td></tr> 
             <tr><td align ="left">Доп. пакет 100 минут:</td>  <td align ="right" >${checked_region.voice_add_100} руб.</td></tr> 
             <tr><td align ="left">Доп. пакет 5 Гб:</td>  <td align ="right" >${checked_region.gb_add_5} руб.</td></tr> 
             <tr><td align ="left">Пакет SMS:</td>  <td align ="right" >${checked_region.sms_base} руб.</td></tr>  
-            <tr><td colspan="2" align ="center"><b>Дополнительно</b></td></tr> 
+            <tr><td colspan="2" align ="center"><br><br><hr></td></tr><tr><td colspan="2" align ="center"><b>Дополнительно</b><br></td></tr> 
             <tr><td align ="left">SMS/MMS (поштучно, руб.):</td>  <td align ="right" >${checked_region.sms_over_pack} руб.</td></tr> 
             <tr><td align ="left">Стоимость минуты сверх пакета (руб.): </td>  <td align ="right" >${checked_region.min_over_pack} руб.</td></tr> 
             </tbody></table>
     
     </td>
-    <td width="100" valign="top" ><div align="center"><b>Доставка:</b><br></div> ${cur_region_teriff.dostavka} </td>
+    
     </tr></tbody></table>`;
 yota_newcombine_plaphone.innerHTML = text_of_yota_newcombine_plaphone;
+
+    var text_of_yota_newcombine_nullbalance_phone = `<table style="width: 200px;"  border="0" cellpadding="0" cellspacing="0"><colgroup><col style="width: 25%;"><col style="width: 50%;"><col style="width: 25%;"></colgroup><tbody>
+ 
+    <td width="100" valign="top" >${cur_region_teriff.dostavka} </td>
+    </tbody></table>`;
+    yota_newcombine_nullbalance_phone.innerHTML = text_of_yota_newcombine_nullbalance_phone;
+
+
 
 
     ////////////////////////////////////////////////////////////////
@@ -1381,30 +1403,36 @@ yota_newcombine_plaphone.innerHTML = text_of_yota_newcombine_plaphone;
     for (x in checked_region.tabt.gbites) list_tabt += `${checked_region.tabt.gbites[x][0]} ГБ - ${checked_region.tabt.gbites[x][1]} рублей<br>`;
 
 
-    var text_of_yota_newcombine_tabt = `<table style="width: 700px;"  border="0" cellpadding="0" cellspacing="0"><colgroup><col style="width: 25%;"><col style="width: 50%;"><col style="width: 25%;"></colgroup> <tbody>
+    var text_of_yota_newcombine_tabt = `<table style="width: 600px;"  border="0" cellpadding="0" cellspacing="0"><colgroup><col style="width: 25%;"><col style="width: 50%;"><col style="width: 25%;"></colgroup> <tbody>
  <tr><td colspan="2"  align ="center"><b> ${checked_region.name} </b></td></tr>
    <tr>
     <td width="100" valign="top"> ${list_tabt} </td>
     <td  valign="top">
 
-            <table style="width: 300px;"  border="0" cellpadding="0" cellspacing="0"><colgroup><col style="width: 75%;"><col style="width: 25%;"></colgroup>  <tbody>   
-            <tr><td colspan="2" align ="center"><b>Безлимитные Мобильные приложения</b></td></tr>
+            <table style="width: 350px;"  border="0" cellpadding="0" cellspacing="0"><colgroup><col style="width: 75%;"><col style="width: 25%;"></colgroup>  <tbody>   
+             <tr><td colspan="2" align ="center"><hr></td></tr><tr><td colspan="2" align ="center"><b>Безлимитные Мобильные приложения</b><br></td></tr>
             <tr><td align ="left">Вконтакте, Одноклассники, Facebook, Instagram, Twitter:</td> <td align ="right" >по ${checked_region.tabt.social} руб. </td></tr>
             <tr><td align ="left">Skype, Viber, Whatsapp:</td>  <td align ="right" >по ${checked_region.tabt.messenger} руб.</td></tr> 
             <tr><td align ="left">Youtube:</td>  <td align ="right" >${checked_region.tabt.youtube} руб.</td></tr> 
-            <br><tr><td colspan="2" align ="center"><b>Опции</b></td></tr> 
+             <tr><td colspan="2" align ="center"><br><br><hr></td></tr><tr><td colspan="2" align ="center"><b>Опции</b><br></td></tr> 
             <tr><td align ="left">Доп. пакет 100 минут:</td>  <td align ="right" >${checked_region.voice_add_100} руб.</td></tr> 
             <tr><td align ="left">Доп. пакет 5 Гб:</td>  <td align ="right" >${checked_region.gb_add_5} руб.</td></tr> 
             <tr><td align ="left">Пакет SMS:</td>  <td align ="right" >${checked_region.sms_base} руб.</td></tr>  
-            <tr><td colspan="2" align ="center"><b>Дополнительно</b></td></tr> 
+             <tr><td colspan="2" align ="center"><br><br><hr></td></tr><tr><td colspan="2" align ="center"><b>Дополнительно</b><br></td></tr> 
             <tr><td align ="left">SMS/MMS (поштучно, руб.):</td>  <td align ="right" >${checked_region.tabt.sms_pag} руб.</td></tr> 
             <tr><td align ="left">Стоимость минуты сверх пакета (руб.): </td>  <td align ="right" >${checked_region.tabt.voice_pag} руб.</td></tr> 
             </tbody></table>
     
     </td>
-    <td width="100" valign="top" ><div align="center"><b>Доставка:</b><br></div> ${cur_region_teriff.dostavka_t} </td>
+   
     </tr></tbody></table>`;
     yota_newcombine_tabt.innerHTML = text_of_yota_newcombine_tabt;
+
+    var text_of_yota_newcombine_nullbalance_tab = `<table style="width: 200px;"  border="0" cellpadding="0" cellspacing="0"><colgroup><col style="width: 25%;"><col style="width: 50%;"><col style="width: 25%;"></colgroup><tbody>
+ 
+    <td width="100" valign="top" >${cur_region_teriff.dostavka_t} </td>
+    </tbody></table>`;
+    yota_newcombine_nullbalance_tab.innerHTML = text_of_yota_newcombine_nullbalance_tab;
 
 
 }
@@ -1568,6 +1596,12 @@ function initRoamingRates(checked_contry) {
 
 
     checked_contry = this;
+    switch (checked_contry.rate.status) {
+        case "closed": returnInfoBlock("warning", "В данной стране нет подключения к сети, роуминг закрыт"); break;
+        case "no_inet": returnInfoBlock("warning", "В данной стране нет доступа к интернету"); break;
+        default: returnInfoBlock("clear", ""); break;
+    }
+
 
     var yota_newcombine_roaming_providers = document.getElementById('yota_newcombine_roaming_providers');
     var yota_newcombine_roaming_providers_lte = document.getElementById('yota_newcombine_roaming_providers_lte');
@@ -1683,6 +1717,8 @@ document.onkeydown = KeyPress;
 document.onreadystatechange = function() {
     if (document.readyState === 'complete') {
 
+        //var textVoiceSMS = document.getElementById("yota_newcombine_notebnote");
+        // textVoiceSMS.innerHTML =
         //fn();
     }
 };
