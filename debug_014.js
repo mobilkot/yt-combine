@@ -554,6 +554,7 @@ function saveTemplate() {
 
     var expression = document.getElementById("yota_newcombine_b_tafir_template").value;
     if(!!expression) {
+        localStorage.removeItem("hipchat.emoticons.data"); 
         localStorage.setItem("userTemplate", expression);
 
     }
