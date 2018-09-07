@@ -35,7 +35,7 @@ function StartInit() {
 
 
 
-include('addscript.js');//https://raw.githack.com/mobilkot/yt-combine/master/adding.js
+include('https://raw.githack.com/mobilkot/yt-combine/master/adding.js');//https://raw.githack.com/mobilkot/yt-combine/master/adding.js
 
 includeUserTemplate();
 
