@@ -1,7 +1,6 @@
 ///////
 //////// Добавление ссылки Recheck для вызова модального окна с сайтом ЦНИИС
 
-
 //
 //
 //
@@ -43,7 +42,7 @@ let modalframecombine = `
          height: 660px;
          right: 235px;
          transform: scale(1);
-        bottom: 120px;
+        bottom: 100px;
         overflow: hidden;
         position:relative;
 '></iframe>
