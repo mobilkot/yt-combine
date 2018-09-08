@@ -102,16 +102,12 @@ var p = document.createElement("div");
 p.innerHTML = modalframecombine;
  document.body.appendChild(p);
 
-// var pstyles = document.createElement("style");
-// pstyles.setAttribute("type", "text/css");
-// pstyles.innerHTML = styles;
-//  document.body.appendChild(pstyles);
+var pstyles = document.createElement("style");
+pstyles.setAttribute("type", "text/css");
+pstyles.innerHTML = styles;
+document.body.appendChild(pstyles);
 
-var link = `<a href="https://zniis.ru/bdpn/check?num=9999999999" target="number_bla_iframe1" onclick='OpenZniis()'>
-    Нажми на меня, нажми</a> `;
-var plink = document.createElement("div");
-plink.innerHTML = link;
-document.body.appendChild(plink);
+ 
 
 
 
