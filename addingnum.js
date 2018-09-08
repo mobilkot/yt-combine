@@ -3,7 +3,6 @@
 
 
 
-
 //
 //
 //
@@ -108,25 +107,16 @@ var pstyles = document.createElement("style");
 pstyles.setAttribute("type", "text/css");
 pstyles.innerHTML = styles;
  document.body.appendChild(pstyles);
+
  
+
+
 
 
 parent.frames["number_bla_iframe1"].document.location="https://zniis.ru/bdpn/check?num=9999999999";
 
-//var link111= "https://zniis.ru/bdpn/check?num=9999999999";
-function onLoad() {
-    document.getElementById ('number_bla_innerIframe').contentWindow.document.body.scrollTop = 300;
-    parent.frames["number_bla_iframe1"].document.bottom="200px";
-    var myElement = document.getElementById('block1');
-    var topPos = myElement.offsetTop;
-    document.getElementById('number_bla_innerIframe').scrollTop += 300;
-
-
-}
-
-
 function OpenZniis() {
-
+    //
     // $(document).ready(function () { /
     // });
     // $('a#go').click( function(event){ // лoвим клик
@@ -152,7 +142,7 @@ $('#modal_close, #overlay, #savetemplatecombine ').click(function () { // лoв�
             function () { // пoсле aнимaции
                 $(this).css('display', 'none'); // делaем ему display: none;
                 $('#overlay').fadeOut(400); // скрывaем пoдлoжку
-                window.open(MainLink,"_self");
+
             }
         );
 });
