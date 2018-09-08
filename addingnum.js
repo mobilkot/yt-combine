@@ -2,7 +2,6 @@
 //////// Добавление ссылки Recheck для вызова модального окна с сайтом ЦНИИС
 
 
-
 //
 //
 //
@@ -34,16 +33,17 @@ let modalframecombine = `
         -moz-resize:vertical;
         resize: none;
         width: 1000px;
-        height: 600px;
+        height: 500px;
         position:relative;
         left: 0;
         bottom: 0px;
 ">
-    <iframe src="test/3.html"  scrolling="no" name="number_bla_iframe1" id='number_bla_innerIframe' style='
+    <iframe src="https://zniis.ru/bdpn/check?num=9999999999"  scrolling="no" name="number_bla_iframe1" id='number_bla_innerIframe' style='
         width:1000px;
          height: 660px;
          right: 235px;
-        bottom: 160px;
+         transform: scale(1);
+        bottom: 120px;
         overflow: hidden;
         position:relative;
 '></iframe>
@@ -103,12 +103,16 @@ var p = document.createElement("div");
 p.innerHTML = modalframecombine;
  document.body.appendChild(p);
 
-var pstyles = document.createElement("style");
-pstyles.setAttribute("type", "text/css");
-pstyles.innerHTML = styles;
- document.body.appendChild(pstyles);
+// var pstyles = document.createElement("style");
+// pstyles.setAttribute("type", "text/css");
+// pstyles.innerHTML = styles;
+//  document.body.appendChild(pstyles);
 
- 
+var link = `<a href="https://zniis.ru/bdpn/check?num=9999999999" target="number_bla_iframe1" onclick='OpenZniis()'>
+    Нажми на меня, нажми</a> `;
+var plink = document.createElement("div");
+plink.innerHTML = link;
+document.body.appendChild(plink);
 
 
 
