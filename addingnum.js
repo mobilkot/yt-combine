@@ -1,3 +1,8 @@
+///////
+//////// Добавление ссылки Recheck для вызова модального окна с сайтом ЦНИИС
+
+
+
 
 //
 //
@@ -103,12 +108,7 @@ var pstyles = document.createElement("style");
 pstyles.setAttribute("type", "text/css");
 pstyles.innerHTML = styles;
  document.body.appendChild(pstyles);
-
-var link = `<a target="number_bla_iframe1" href="https://zniis.ru/bdpn/check?num=9999999999" onclick='OpenZniis()'>
-    Нажми на меня, нажми</a> `;
-var plink = document.createElement("div");
-plink.innerHTML = link;
-document.body.appendChild(plink);
+ 
 
 
 parent.frames["number_bla_iframe1"].document.location="https://zniis.ru/bdpn/check?num=9999999999";
