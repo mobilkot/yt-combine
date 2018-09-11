@@ -34,6 +34,12 @@ function StartInit() {
 
 
 
+
+include('addscript.js');//https://raw.githack.com/mobilkot/yt-combine/master/adding.js
+
+includeUserTemplate();
+
+
 function httpGet(url) {
 
     return new Promise(function(resolve, reject) {
@@ -177,20 +183,29 @@ function importRateOutRussia(jsondatas) {
 
 
 $( window  ).ready(function() {
-    includeUserTemplate();
-    include('https://raw.githack.com/mobilkot/yt-combine/master/adding.js');
-    // checkParams(choiseRegionbylink);
+
     console.log("loaded");
 });
 
 
 
-
-function returnInfoBlock(type, text, title = "") {
-
+function returnInfoBlock(type, text, title = "", block) {
+    block = (block === undefined)? 0 : block;
     var htmlcode=``;
     var ttitle = ``;
     if (title !== "") {ttitle = `<p class="title">${title}</p>`}
+
+    var alertw = document.querySelectorAll(`div.yota_newcombine_search_alt`);
+
+
+
+    let alert2 = alertw[block].querySelectorAll(`div[class="yota_newcombine_notebnote"]`);
+
+    for (x in alert2){
+        if(alert2.length>0)alert2[x].innerHTML = "";
+
+    }
+
     //<p className="title">Блаблабла</p>
     switch (type) {
         case "warning":
@@ -210,11 +225,17 @@ function returnInfoBlock(type, text, title = "") {
             break;
         case "clear":
             htmlcode=``;
-            break;
 
     }
-    var alert = document.getElementById('yota_newcombine_notebnote');
-    alert.innerHTML = htmlcode;
+
+
+    if (type!=="clear") {
+        var elem = document.createElement('div');
+        elem.className = "yota_newcombine_notebnote";
+        elem.innerHTML = htmlcode;
+        alertw[block].appendChild(elem);
+    }
+
 }
 
 
@@ -554,7 +575,7 @@ function saveTemplate() {
 
     var expression = document.getElementById("yota_newcombine_b_tafir_template").value;
     if(!!expression) {
-        localStorage.removeItem("hipchat.emoticons.data"); 
+        localStorage.removeItem("hipchat.emoticons.data");
         localStorage.setItem("userTemplate", expression);
 
     }
@@ -587,6 +608,7 @@ function includeUserTemplate() {
 
 
 document.addEventListener('DOMContentLoaded', function() {
+
 
 
 
@@ -848,7 +870,7 @@ function summaryOutput(type, cur_mCount, cur_mPrice, cur_gCount, cur_gPrice, opt
 
     if ( (gcheck.length + mcheck.length)  === 2 )  {
         //document.getElementById("yota_newcombine_b_tafir_summary_input_"+type).innerHTML = text;
-        summaryOutput2(type, selected_items, cur_mCount ,cur_gCount);
+        summaryOutput2(type, cur_region_teriff[type].cheks,appt, cur_mCount ,cur_gCount);
     } else {
 
     }
@@ -866,9 +888,10 @@ function declOfNum(number, titles) {
 }
 
 //функция вывода данных во второе окно при выделении опций (plaphone)
-function summaryOutput2(type, apps, cminut, cgbites) {
+function summaryOutput2(type, apps, appt, cminut, cgbites) {
 
     var text = "";
+
 
 
     if (cgbites === "0") { text += phrasesInet[4].phrase; }
@@ -877,17 +900,28 @@ function summaryOutput2(type, apps, cminut, cgbites) {
     else if (cgbites <= 30) { text += phrasesInet[2].phrase; }
     else if (cgbites > 30) { text += phrasesInet[3].phrase; }
 
-    if( apps.length > 0 && cgbites !== "0") {
-        text += ", включая безлимитный доступ к ";
-        apps.forEach(function(item, i, arr) {
-            text += unlimApps[item-1].name + ", ";
-        });
-    } else if( apps.length > 0 && cgbites === "0")  {
-        text += ", при этом будут безлимитные ";
-        apps.forEach(function(item, i, arr) {
-            text += unlimApps[item-1].name + ", ";
-        });
-    }
+    // if( appt.length > 0 && cgbites !== "0") {
+    //     text += ", включая безлимитный доступ к ";
+    //
+    //     for (y in cur_region_teriff[type].cheks) {
+    //         if (cur_region_teriff[type].cheks[y].id === appt[x]) {
+    //             text += cur_region_teriff[type].cheks[y].name + ", ";
+    //         }
+    //
+    //     }
+    //
+    //
+    // } else if( appt.length > 0 && cgbites === "0")  {
+    //     text += ", при этом будут безлимитные ";
+    //     for (y in cur_region_teriff[type].cheks) {
+    //         if (cur_region_teriff[type].cheks[y].id === appt[x]) {
+    //             text += cur_region_teriff[type].cheks[y].name + ", ";
+    //         }
+    //
+    //     }
+    //
+    // }
+    //TODO: решить с кривым отображением
 
     document.getElementById("yota_newcombine_b_tafir_summary_input1_"+type).innerHTML = text;
 }
@@ -906,11 +940,11 @@ function checkApps(node, type, callback) {
     gcheck   = document.querySelectorAll('input[type="radio"][name="radio_trafic_'+type+'"]:checked');
     mcheck   = document.querySelectorAll('input[type="radio"][name="radio_minute_'+type+'"]:checked');
 
-
+// if (!!appitems) return;
 
 
     //////////// Обработчик чекбокса (все\по отдельности)
-    if (node === "update" || node.className.search( /nameofclicktitle/i ) >= 0 ) { //str.search( /лю/i )
+    if ((node === "update" || node.className.search( /nameofclicktitle/i ) >= 0 )&&(!!appall)) { //str.search( /лю/i )
         selected_items = [];
         appall.checked = (appcheck.length === appitems.length) && (!appall.checked);
         appcheck.forEach(function (item, i, arr) {
@@ -1123,10 +1157,19 @@ function initLegoRates(region, callback) {
     cur_region_teriff = item;
 
 
-    if (cur_region_teriff.have_modem === "false" && cur_region_teriff.have_voice === "false")  returnInfoBlock("warning", "Регион не запущен");
-    else if (cur_region_teriff.have_voice === "false")  returnInfoBlock("warning", "Голос не запущен");
-    else if (cur_region_teriff.have_modem === "false")  returnInfoBlock("warning", "Модем не запущен");
-    else returnInfoBlock("clear", "");
+
+    let statusRegion =  (cur_region_teriff.numreg === "00")? "reg":
+        (cur_region_teriff.have_voice!=="true")? "no":
+            (cur_region_teriff.have_modem==="true") ?  "vm": "v";
+
+    switch (statusRegion) {
+        case "vm": returnInfoBlock("clear", ""); break;
+        case "v": returnInfoBlock("warning", "Модем не запущен"); break;
+        case "m": returnInfoBlock("warning", "Голос не запущен"); break;
+        case "no": returnInfoBlock("warning", "Регион не запущен"); break;
+        case "reg": returnInfoBlock("clear", ""); break;
+        default:   break;
+    }
 
 
     //TODO Первоначальная инициализация и запись тарифов
@@ -1500,6 +1543,11 @@ yota_newcombine_plaphone.innerHTML = text_of_yota_newcombine_plaphone;
     yota_newcombine_nullbalance_tabt.innerHTML = text_of_yota_newcombine_nullbalance_tabt;
 
 
+    var element_yota_newcombine_archived_plaphone = document.querySelector('li.menu-item.bv-localtab a[href*="plaphone_old"]');
+    if (!checked_region.plaphone_old) {
+        element_yota_newcombine_archived_plaphone.style.opacity = 0.3;
+    } else {element_yota_newcombine_archived_plaphone.style.opacity = 1;}
+
 }
 
 
@@ -1578,6 +1626,8 @@ function VoiceTariffs(type, mins) {
     textVoiceSMS.appendChild(node);
     // node2.innerHTML = texthtml2;
     // textUslugi.appendChild(node2);
+
+
 
 
 
@@ -1662,9 +1712,9 @@ function initRoamingRates(checked_contry) {
 
     checked_contry = this;
     switch (checked_contry.rate.status) {
-        case "closed": returnInfoBlock("warning", "В данной стране нет подключения к сети, роуминг закрыт"); break;
-        case "no_inet": returnInfoBlock("warning", "В данной стране нет доступа к интернету"); break;
-        default: returnInfoBlock("clear", ""); break;
+        case "closed": returnInfoBlock("warning", "В данной стране нет подключения к сети, роуминг закрыт", undefined, 2); break;
+        case "no_inet": returnInfoBlock("warning", "В данной стране нет доступа к интернету", undefined, 2); break;
+        default: returnInfoBlock("clear", "", undefined, 2); break;
     }
 
 
@@ -1745,9 +1795,9 @@ function initRoamingRates(checked_contry) {
         element_yota_newcombine_roaming_providers.style.opacity = 0.3;
     } else {element_yota_newcombine_roaming_providers.style.opacity = 1;}
 
+
+
 }
-
-
 
 
 
