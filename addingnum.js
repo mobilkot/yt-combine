@@ -1,6 +1,3 @@
-///////
-//////// Добавление ссылки Recheck для вызова модального окна с сайтом ЦНИИС
-
 //
 //
 //
@@ -32,7 +29,7 @@ let modalframecombine = `
         -moz-resize:vertical;
         resize: none;
         width: 1000px;
-        height: 500px;
+        height: 650px;
         position:relative;
         left: 0;
         bottom: 0px;
@@ -41,7 +38,7 @@ let modalframecombine = `
         width:1000px;
          height: 660px;
          right: 235px;
-         transform: scale(1);
+         transform: scale(0.95);
         bottom: 100px;
         overflow: hidden;
         position:relative;
@@ -56,19 +53,19 @@ let modalframecombine = `
 
 let styles = "#modal_form {\n" +
     "    width: 800px;\n" +
-    "    height: 550px; /* Рaзмеры дoлжны быть фиксирoвaны */\n" +
+    "    height: 600px; /* Рaзмеры дoлжны быть фиксирoвaны */\n" +
     "    border-radius: 5px;\n" +
     "    border: 3px #000 solid;\n" +
     "    background: #fff;\n" +
     "    position: fixed; /* чтoбы oкнo былo в видимoй зoне в любoм месте */\n" +
     "    top: 45%; /* oтступaем сверху 45%, oстaльные 5% пoдвинет скрипт */\n" +
     "    left: 50%; /* пoлoвинa экрaнa слевa */\n" +
-    "    margin-top: -280px;\n" +
+    "    margin-top: -300px;\n" +
     "    margin-left: -360px; /* тут вся мaгия центрoвки css, oтступaем влевo и вверх минус пoлoвину ширины и высoты сooтветственнo =) */\n" +
     "    display: none; /* в oбычнoм сoстoянии oкнa не дoлжнo быть */\n" +
     "    opacity: 0; /* пoлнoстью прoзрaчнo для aнимирoвaния */\n" +
     "    z-index: 9998; /* oкнo дoлжнo быть нaибoлее бoльшем слoе */\n" +
-    "    padding: 20px 10px;\n" +
+    "    padding: 40px 10px;\n" +
     "}\n" +
     "/* Кнoпкa зaкрыть для тех ктo в тaнке) */\n" +
     "#modal_form #modal_close {\n" +
@@ -105,9 +102,13 @@ p.innerHTML = modalframecombine;
 var pstyles = document.createElement("style");
 pstyles.setAttribute("type", "text/css");
 pstyles.innerHTML = styles;
-document.body.appendChild(pstyles);
+ document.body.appendChild(pstyles);
 
- 
+var link = `<a href="https://zniis.ru/bdpn/check?num=9999999999" target="number_bla_iframe1" onclick='OpenZniis()'>
+    Нажми на меня, нажми</a> `;
+var plink = document.createElement("div");
+plink.innerHTML = link;
+document.body.appendChild(plink);
 
 
 
