@@ -24,6 +24,7 @@ function StartInit() {
             jsondata.tab_unlim = results[6];
             jsondata.tabt = results[7];
             jsondata.ph_unlim = results[8];
+            jsondata.delivery = results[9];
             importRateRussia.call(jsondata);
         });
 
@@ -35,7 +36,7 @@ function StartInit() {
 
 
 
-include('https://raw.githack.com/mobilkot/yt-combine/master/adding.js');//https://raw.githack.com/mobilkot/yt-combine/master/adding.js
+include('addscript.js');//https://raw.githack.com/mobilkot/yt-combine/master/adding.js
 
 includeUserTemplate();
 
@@ -1172,6 +1173,14 @@ function initLegoRates(region, callback) {
     }
 
 
+    let list = [];
+    for (x in jsondata.delivery){
+        if(region===jsondata.delivery[x].id){
+            list.push(jsondata.delivery[x]);
+        }
+    }
+    cur_region_teriff.deliv = list;
+
     //TODO Первоначальная инициализация и запись тарифов
     for (x in type_rates) {
         let name = type_rates[x];
@@ -1485,7 +1494,33 @@ SMS/MMS — ${checked_region.tab_unlim.sms_pag} руб. за штуку.<br>
          </td></tr></tbody></table> </td> </tr></tbody></table>`;
 yota_newcombine_plaphone.innerHTML = text_of_yota_newcombine_plaphone;
 
-    var text_of_yota_newcombine_nullbalance_plaphone = `<table style="width: 200px;"  border="0" cellpadding="0" cellspacing="0"><colgroup><col style="width: 40%;"><col style="width: 60%;"><col style="width: 25%;"></colgroup><tbody>
+
+    let deliv = cur_region_teriff.deliv;
+    let text = ''; let data = [];
+    for (x in deliv) {
+        if(deliv[x].type==="phone"){
+            data.push({region: deliv[x].region,  tpio: deliv[x].tpio, ft: deliv[x].ft, im: deliv[x].im, sv: deliv[x].sv, rtk: deliv[x].rtk, altname: deliv[x].altname});
+        }
+    }
+        if(data.length===1) {
+        if (data[0].tpio === data[0].ft )text += `В нашей ТПиО или франшизе: ${data[0].tpio} рублей<br>`;
+        if (data[0].tpio !== data[0].ft )text += `В нашей ТПиО: ${data[0].tpio} рублей, во франшизе: ${data[0].ft} рублей<br>`;
+        text += `При заказе на нашем сайте или в приложении: ${data[0].im} рублей.<br>`;
+        text += `В Евросети или Связном: ${data[0].sv} рублей.<br>`;
+        text += `В Ростелекоме: ${data[0].rtk} рублей.<br>`;
+        } else if(data.length>1) {
+        if (data[0].tpio === data[1].tpio )text += `В нашей ТПиО или франшизе: ${data[0].tpio} рублей<br>`;
+        if (data[0].tpio !== data[1].tpio )text += `В нашей ТПиО или франшизе: в ${data[0].altname}: ${data[0].tpio} рублей, в ${data[1].altname}: ${data[1].tpio} рублей,<br>`;
+        text += `При заказе на нашем сайте или в приложении: ${data[0].im} рублей.<br>`;
+        if (data[0].sv === data[1].sv )text += `В Евросети или Связном: ${data[0].sv} рублей<br>`;
+        if (data[0].sv !== data[1].sv )text += `В Евросети или Связном: В ${data[0].altname}: ${data[0].sv} рублей, В ${data[1].altname}: ${data[1].sv} рублей,<br>`;
+         text += `В Ростелекоме: ${data[0].rtk} рублей.<br>`;
+}
+    cur_region_teriff.dostavka = text;
+
+    //
+    ///TODO: сделать инициализацию ранее
+    var text_of_yota_newcombine_nullbalance_plaphone = `<table style="width: 400px;"  border="0" cellpadding="0" cellspacing="0"><colgroup><col style="width: 40%;"><col style="width: 60%;"><col style="width: 25%;"></colgroup><tbody>
  
     <td width="100" valign="top" >${cur_region_teriff.dostavka} </td>
     </tbody></table>`;
@@ -1536,7 +1571,31 @@ yota_newcombine_plaphone.innerHTML = text_of_yota_newcombine_plaphone;
          </td></tr></tbody></table> </td> </tr></tbody></table>`;
     yota_newcombine_tabt.innerHTML = text_of_yota_newcombine_tabt;
 
-    var text_of_yota_newcombine_nullbalance_tabt = `<table style="width: 200px;"  border="0" cellpadding="0" cellspacing="0"><colgroup><col style="width: 25%;"><col style="width: 50%;"><col style="width: 25%;"></colgroup><tbody>
+
+
+    let text1 = ''; let data1 = [];
+    for (x in deliv) {
+        if(deliv[x].type==="tablet"){
+            data1.push({region: deliv[x].region,  tpio: deliv[x].tpio, ft: deliv[x].ft, im: deliv[x].im, sv: deliv[x].sv, rtk: deliv[x].rtk, altname: deliv[x].altname});
+        }
+    }
+    if(data1.length===1) {
+        if (data1[0].tpio === data1[0].ft )text1 += `В нашей ТПиО или франшизе: ${data1[0].tpio} рублей<br>`;
+        if (data1[0].tpio !== data1[0].ft )text1 += `В нашей ТПиО: ${data1[0].tpio} рублей, во франшизе: ${data1[0].ft} рублей<br>`;
+        text1 += `При заказе на нашем сайте или в приложении: ${data1[0].im} рублей.<br>`;
+        text1 += `В Евросети или Связном: ${data1[0].sv} рублей.<br>`;
+        text1 += `В Ростелекоме: ${data1[0].rtk} рублей.<br>`;
+    } else if(data1.length>1) {
+        if (data1[0].tpio === data1[1].tpio )text1 += `В нашей ТПиО или франшизе: ${data1[0].tpio} рублей<br>`;
+        if (data1[0].tpio !== data1[1].tpio )text1 += `В нашей ТПиО или франшизе: в ${data1[0].altname}: ${data1[0].tpio} рублей, в ${data1[1].altname}: ${data1[1].tpio} рублей,<br>`;
+        text1 += `При заказе на нашем сайте или в приложении: ${data1[0].im} рублей.<br>`;
+        if (data1[0].sv === data1[1].sv )text1 += `В Евросети или Связном: ${data1[0].sv} рублей<br>`;
+        if (data1[0].sv !== data1[1].sv )text1 += `В Евросети или Связном: В ${data1[0].altname}: ${data1[0].sv} рублей, В ${data1[1].altname}: ${data1[1].sv} рублей,<br>`;
+        text1 += `В Ростелекоме: ${data1[0].rtk} рублей.<br>`;
+    }
+    cur_region_teriff.dostavka_t = text1;
+
+    var text_of_yota_newcombine_nullbalance_tabt = `<table style="width: 400px;"  border="0" cellpadding="0" cellspacing="0"><colgroup><col style="width: 25%;"><col style="width: 50%;"><col style="width: 25%;"></colgroup><tbody>
  
     <td width="100" valign="top" >${cur_region_teriff.dostavka_t} </td>
     </tbody></table>`;
