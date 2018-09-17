@@ -169,13 +169,13 @@ input:checked + label div.b2c-voice-collect__app-price {
 }
 
 input[data-name="fb"] + label div.b-voice-calculator__application-icon {
-    background-image: url(icons/facebook.svg); }
+    background-image: url(https://iknow.yotateam.com/download/attachments/138481526/facebook.svg); }
 
 input[data-name="fb"]:checked + label div.b-voice-calculator__application-icon {
-    background-image: url(icons/facebook-active.svg); }
+    background-image: url(https://iknow.yotateam.com/download/attachments/138481526/facebook-active.svg); }
 
 input[data-name="ok"] + label div.b-voice-calculator__application-icon {
-    background-image: url(icons/ok.svg); }
+    background-image: url(https://iknow.yotateam.com/download/attachments/138481526/ok.svg); }
 
 input[data-name="ok"]:checked + label div.b-voice-calculator__application-icon {
     background-image: url(https://iknow.yotateam.com/download/attachments/138481526/ok-active.svg); }
@@ -562,7 +562,7 @@ div .panel {
     /*top: 140px;*/
     width: 250px;
     height: 80px;
-    background-image: url("icons/nag.png");
+    background-image: url("https://iknow.yotateam.com/download/attachments/138481526/nag.png");
     padding: 0px;
     margin-top: -90px;
     background-size: 100px;
