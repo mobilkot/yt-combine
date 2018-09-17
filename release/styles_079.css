@@ -178,55 +178,55 @@ input[data-name="ok"] + label div.b-voice-calculator__application-icon {
     background-image: url(icons/ok.svg); }
 
 input[data-name="ok"]:checked + label div.b-voice-calculator__application-icon {
-    background-image: url(icons/ok-active.svg); }
+    background-image: url(https://iknow.yotateam.com/download/attachments/138481526/ok-active.svg); }
 
 input[data-name="ig"] + label div.b-voice-calculator__application-icon {
-    background-image: url(icons/instagram.svg); }
+    background-image: url(https://iknow.yotateam.com/download/attachments/138481526/instagram.svg); }
 
 input[data-name="ig"]:checked + label div.b-voice-calculator__application-icon {
-    background-image: url(icons/instagram-active.svg); }
+    background-image: url(https://iknow.yotateam.com/download/attachments/138481526/instagram-active.svg); }
 
 input[data-name="sk"] + label div.b-voice-calculator__application-icon {
-    background-image: url(icons/skype.svg); }
+    background-image: url(https://iknow.yotateam.com/download/attachments/138481526/skype.svg); }
 
 input[data-name="sk"]:checked + label div.b-voice-calculator__application-icon {
-    background-image: url(icons/skype-active.svg); }
+    background-image: url(https://iknow.yotateam.com/download/attachments/138481526/skype-active.svg); }
 
 input[data-name="tw"] + label div.b-voice-calculator__application-icon {
-    background-image: url(icons/twitter.svg); }
+    background-image: url(https://iknow.yotateam.com/download/attachments/138481526/twitter.svg); }
 
 input[data-name="tw"]:checked + label div.b-voice-calculator__application-icon {
-    background-image: url(icons/twitter-active.svg); }
+    background-image: url(https://iknow.yotateam.com/download/attachments/138481526/twitter-active.svg); }
 
 input[data-name="vi"] + label div.b-voice-calculator__application-icon {
-    background-image: url(icons/viber.svg); }
+    background-image: url(https://iknow.yotateam.com/download/attachments/138481526/viber.svg); }
 
 input[data-name="vi"]:checked + label div.b-voice-calculator__application-icon {
-    background-image: url(icons/viber-active.svg); }
+    background-image: url(https://iknow.yotateam.com/download/attachments/138481526/viber-active.svg); }
 
 input[data-name="vk"] + label div.b-voice-calculator__application-icon {
-    background-image: url(icons/vkontakte.svg); }
+    background-image: url(https://iknow.yotateam.com/download/attachments/138481526/vkontakte.svg); }
 
 input[data-name="vk"]:checked + label div.b-voice-calculator__application-icon {
-    background-image: url(icons/vkontakte-active.svg); }
+    background-image: url(https://iknow.yotateam.com/download/attachments/138481526/vkontakte-active.svg); }
 
 input[data-name="wh"] + label div.b-voice-calculator__application-icon {
-    background-image: url(icons/whatsapp.svg); }
+    background-image: url(https://iknow.yotateam.com/download/attachments/138481526/whatsapp.svg); }
 
 input[data-name="wh"]:checked + label div.b-voice-calculator__application-icon {
-    background-image: url(icons/whatsapp-active.svg); }
+    background-image: url(https://iknow.yotateam.com/download/attachments/138481526/whatsapp-active.svg); }
 
 input[data-name="yt"] + label div.b-voice-calculator__application-icon {
-    background-image: url(icons/youtube.svg); }
+    background-image: url(https://iknow.yotateam.com/download/attachments/138481526/youtube.svg); }
 
 input[data-name="yt"]:checked + label div.b-voice-calculator__application-icon {
-    background-image: url(icons/youtube-active.svg); }
+    background-image: url(https://iknow.yotateam.com/download/attachments/138481526/youtube-active.svg); }
 
 input[data-name="sm"] + label div.b-voice-calculator__application-icon {
-    background-image: url(icons/sms.svg); }
+    background-image: url(https://iknow.yotateam.com/download/attachments/138481526/sms.svg); }
 
 input[data-name="sm"]:checked + label div.b-voice-calculator__application-icon {
-    background-image: url(icons/sms-active.svg); }
+    background-image: url(https://iknow.yotateam.com/download/attachments/138481526/sms-active.svg); }
 
 
 
@@ -546,7 +546,7 @@ div .panel {
     /*top: 140px;*/
     width: 250px;
     height: 80px;
-    background-image: url("icons/jdun.png");
+    background-image: url("https://iknow.yotateam.com/download/attachments/138481526/jdun.png");
     padding: 0px;
     margin-top: -80px;
     background-size: 100px;
@@ -686,7 +686,7 @@ div .panel {
     /*transition: background .15s ease-in-out;*/
     content: "";
     /*transform: rotate(-45deg);*/
-    background-image: url(icons/copy.svg );
+    background-image: url(https://iknow.yotateam.com/download/attachments/138481526/copy.svg );
     background-size: 14px;
     background-position: center;
     background-repeat: no-repeat;
@@ -746,7 +746,7 @@ div .panel {
     /*transition: background .15s ease-in-out;*/
     content: "";
     /*transform: rotate(-45deg);*/
-    background-image: url(icons/logo.svg );
+    background-image: url(https://iknow.yotateam.com/download/attachments/138481526/logo.svg );
     background-size: 14px;
     background-position: center;
     border: 1px solid #a8ebff;
