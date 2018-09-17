@@ -2001,21 +2001,7 @@ function animation(){
 
 ///
 window.addEventListener("DOMContentLoaded", function() {
-    $(".offline-ui").appendTo(".number_bla_box");
-    Offline.options = {
-        game: false,
-        checkOnLoad: false,
-        interceptRequests: false,
-        requests: true,
-
-    };
-    Offline.options = {checks: {xhr: {url: 'https://www.kody.su/embed/widget.php'}}};
-
-    Offline.check();
-    if (Offline.error)
-    {
-
-    }
+   
 
 
     function setCursorPosition(pos, elem) {
@@ -2263,7 +2249,7 @@ function compareNumber(number, callback, Kody_Request, Logging) {
     reqw.onreadystatechange = function () {
 
         if ( reqw.readyState === 4 && reqw.status === 200)   {
-            if (Offline.state === 'up') { callback.call(reqw.response, number, Kody_Request, Logging); }
+              { callback.call(reqw.response, number, Kody_Request, Logging);  
 
 
         } else if ( reqw.status === 403 || reqw.status === 500) {
@@ -2273,9 +2259,9 @@ function compareNumber(number, callback, Kody_Request, Logging) {
     reqw.ontimeout = function (e) {
         callback.call(reqw.response, number, Kody_Request, Logging);
     };
-    if (Offline.state === 'down') {
+     
         document.getElementById("number_bla_label").innerHTML = `Пытаемся загрузить ... <a href="javascript:cancelXml()">Отменить</a>`;
-    }
+    
     try { reqw.send( null ); } catch (e) {
 
         callback.call(null, number, Kody_Request, Logging);}
@@ -2397,9 +2383,8 @@ function Kody_Request(text, idelem, callback, callback2) {
             + document.referrer, 1), x.setRequestHeader("X-Requested-With", "XMLHttpRequest"), x.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
         x.onreadystatechange = function () {
             if (x.readyState > 3) {
-                if (200 == x.status)   if (Offline.state === 'up') { callback.call(o, x.responseText, callback2, text); }
-                //TODO: проверить на ошибки
-                else   if (Offline.state === 'down') { callback.call(o, "errorload 500", callback2, text); }
+                if (200 == x.status)   callback.call(o, x.responseText, callback2, text); 
+                
             }
             else if (x.status === 408 || x.status === 403 || x.status === 502 || x.status === 503 || x.status === 500) callback.call(o, "errorload 500");
 
