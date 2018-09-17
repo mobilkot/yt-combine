@@ -1939,8 +1939,8 @@ function getTimeStamp(response, callback, timezone){
     myTimer1 = setInterval(function(){
         localdate.setSeconds(localdate.getSeconds()+1);
 
-        callback.call(`${localdate.toLocaleTimeString()} (MSK${timezonemsk}) (${daysofweek[ localdate.getDay() ]})`);
-    }, 1000);
+        callback.call(`${localdate.toLocaleTimeString()} (MSK${timezonemsk}) `);
+    }, 1000); //(${daysofweek[ localdate.getDay() ]})
 }
 
 
@@ -1991,7 +1991,7 @@ function animation(){
 
         if (ttt > 400) {clearInterval(timer); jdun.style.top= "-200px";jdun.style.visibility= "hidden";   }
 
-    }, 10);
+    }, 6);
 
 }
 
@@ -2190,10 +2190,11 @@ function WriteData(text) {
                 cur.innerHTML = `
                                 Номер: <b>${data.result_number}</b>.  <br>
                                 Оператор: ${img} <span style="color:${data.color_operator}"><b>${data.name_operator}</b>.</span>
-                                 <a target="number_bla_iframe1" href="https://zniis.ru/bdpn/check?num=${number}" onclick='OpenZniis()'> Recheck </a> <br><br>
+                                <br>
                                 Регион: ${region}<br>
                                 Из дипазона: ${data.pool_op}<br>
                                 MNP: ${data.mnp_status} <br>`;
+            // <a target="number_bla_iframe1" href="https://zniis.ru/bdpn/check?num=${number}" onclick='OpenZniis()'> Recheck </a> <br>
 
                 if (data.mnp_status === "номер перенесен") {
                     cur.innerHTML += `INFO: <b>${data.mnp_info}</b>.  <br> `;
@@ -2213,17 +2214,17 @@ function WriteData(text) {
 
 }
 function funcNagiev() {
-    nag_blablabla.style.top= "120px";
+    nag_blablabla.style.top= "-105px";
     nag_blablabla.style.visibility= "visible ";
         var start = Date.now(); // сохранить время начала
-        var ttt = 260;
+        var ttt = 200;
         var timer = setInterval(function() {
             // вычислить сколько времени прошло из opts.duration
             var timePassed = Date.now() - start;
             ttt-=2;
             nag_blablabla.style.backgroundPositionX = ttt + 'px';
 
-            if (ttt < 170) {
+            if (ttt < 50) {
                 clearInterval(timer);
 
             }
@@ -2234,9 +2235,9 @@ function funcNagiev() {
             ttt += 2;
             nag_blablabla.style.backgroundPositionX = ttt + 'px';
 
-            if (ttt > 260) {
+            if (ttt > 200) {
                 clearInterval(timer1);
-                nag_blablabla.style.top = "-200px";
+                nag_blablabla.style.top = "-800px";
                 nag_blablabla.style.visibility = "hidden";
             }
         }, 7);
@@ -2429,18 +2430,18 @@ function CharsetDetect() {
 }
 
 
-function OpenZniis() {
-
-    $('#overlay1').fadeIn(400,
-        function () {
-            $('#modal_form1')
-                .css('display', 'block') //
-                .animate({opacity: 1, top: '50%'}, 200); // плaвнo
-        });
-    // });
-
-
-}
+// function OpenZniis() {
+//
+//     $('#overlay1').fadeIn(400,
+//         function () {
+//             $('#modal_form1')
+//                 .css('display', 'block') //
+//                 .animate({opacity: 1, top: '50%'}, 200); // плaвнo
+//         });
+//     // });
+//
+//
+// }
 
 /* Зaкрытие мoдaльнoгo oкнa, тут делaем тo же сaмoе нo в oбрaтнoм пoрядке */
 $('#modal_close1, #overlay1, #savetemplatecombine ').click(function () { // лoвим клик пo крестику или пoдлoжке
@@ -2454,8 +2455,8 @@ $('#modal_close1, #overlay1, #savetemplatecombine ').click(function () { // лo�
         );
 });
 
-
-
-parent.frames["number_bla_iframe1"].document.location="https://zniis.ru/bdpn/check?num=9999999999";
+//
+//
+// parent.frames["number_bla_iframe1"].document.location="https://zniis.ru/bdpn/check?num=9999999999";
 
 
