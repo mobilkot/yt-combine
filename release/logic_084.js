@@ -921,8 +921,8 @@ function summaryOutput2(type, apps, appt, cminut, cgbites) {
 
     if (cgbites === "0") { text += phrasesInet[4].phrase; }
     else if (cgbites <= 3) {  text += phrasesInet[0].phrase;  }
-    else if (cgbites <= 15) { text += phrasesInet[1].phrase; }
-    else if (cgbites <= 30) { text += phrasesInet[2].phrase; }
+    else if (cgbites < 15) { text += phrasesInet[1].phrase; }
+    else if (cgbites < 30) { text += phrasesInet[2].phrase; }
     else if (cgbites > 30) { text += phrasesInet[3].phrase; }
 
     // if( appt.length > 0 && cgbites !== "0") {
