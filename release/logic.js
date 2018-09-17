@@ -1980,3 +1980,478 @@ document.onreadystatechange = function() {
 
 
 
+
+function animation(){
+    jdun.style.top= "98px";
+    jdun.style.visibility= "visible ";
+    var start = Date.now();
+    var ttt = -100;
+    var timer = setInterval(function() {
+        var timePassed = Date.now() - start;
+        ttt+=2;
+        jdun.style.backgroundPositionX = ttt + 'px';
+
+        if (ttt > 400) {clearInterval(timer); jdun.style.top= "-200px";jdun.style.visibility= "hidden";   }
+
+    }, 10);
+
+}
+
+/// TODO:
+
+///
+window.addEventListener("DOMContentLoaded", function() {
+    $(".offline-ui").appendTo(".number_bla_box");
+    Offline.options = {
+        game: false,
+        checkOnLoad: false,
+        interceptRequests: false,
+        requests: true,
+
+    };
+    Offline.options = {checks: {xhr: {url: 'https://www.kody.su/embed/widget.php'}}};
+
+    Offline.check();
+    if (Offline.error)
+    {
+
+    }
+
+
+    function setCursorPosition(pos, elem) {
+        elem.focus();
+        if (elem.setSelectionRange) elem.setSelectionRange(pos, pos);
+        else if (elem.createTextRange) {
+            var range = elem.createTextRange();
+            range.collapse(true);
+            range.moveEnd("character", pos);
+            range.moveStart("character", pos);
+            range.select()
+        }
+    }
+
+    function mask(event) {
+        var matrix = "+7 (___) ___ ____",
+            i = 0,
+            def = matrix.replace(/\D/g, ""),
+            val = this.value.replace(/\D/g, "");
+        if (def.length >= val.length) val = def;
+        this.value = matrix.replace(/./g, function(a) {
+            return /[_\d]/.test(a) && i < val.length ? val.charAt(i++) : i >= val.length ? "" : a
+        });
+        if (event.type == "blur") {
+            if (this.value.length == 2) this.value = ""
+        } else setCursorPosition(this.value.length, this)
+    }
+    var input = document.querySelector("#number_bla_search");
+    input.addEventListener("input", mask, false);
+    input.addEventListener("focus", mask, false);
+    input.addEventListener("blur", mask, false);
+});
+
+
+regexpAZ = new RegExp( /[A-Z]/ , 'i');
+regexp09 = new RegExp( /[0-9]/ , 'i');
+
+
+function Cleaner(enable) {
+    document.getElementById("number_bla_search").value = "";
+    document.getElementById("number_bla_search").disabled = !enable;
+}
+
+function Cleaner2() {
+
+    document.getElementById("number_bla_label").innerHTML = "";
+}
+
+
+function showCount() {
+    let number = number_bla_search.value;
+    var re = /^(\+7 )(\(\d{3}\) )(\d{3} )(\d{4})/;
+    if( re.test(number)) {
+        number = number.replace(/(?:\+7 \()(\d{3})(?:\) )(\d{3})(?: )(\d{4})/ig, "7$1$2$3");//(\+7)([\d]*);
+        CheckingStart(number);
+    }
+}
+
+number_bla_search.onkeyup = number_bla_search.oninput = showCount;
+number_bla_search.onpropertychange = function() {
+    if (event.propertyName == "value") showCount();
+};
+number_bla_search.oncut = function() {
+    setTimeout(showCount, 0); // на момент oncut значение еще старое
+};
+
+function CheckingStart(number) {
+    animation();
+    Cleaner2();
+    if(!!number) number = document.getElementById("number_bla_search").value;
+
+    var re = /^(\+7 )(\(\d{3}\) )(\d{3} )(\d{4})/;
+    if( re.test(number)) {
+        number = number.replace(/(?:\+7 \()(\d{3})(?:\) )(\d{3})(?: )(\d{4})/ig, "7$1$2$3");//(\+7)([\d]*);
+
+
+        Cleaner(false);
+
+        compareNumber(number, alertFinished, Kody_Request, Logging);
+
+    } else {
+        document.getElementById("number_bla_label").innerHTML = "Введите корректный номер, пожалуйста";
+    }
+
+
+
+}
+
+function alertFinished(number, Kody_Request, Logging){
+    var info = this;
+    SearchNumberFinished(info, number, Kody_Request, Logging);
+
+
+}
+
+
+function SearchNumberFinished(info, number, Kody_Request, Logging) {
+
+    var text = {number:number , operator:info.operator, region:info.region, id:info.region_id};
+    if (info.operator !== undefined) {
+
+        Kody_Request(text, "", Logging, WriteData);
+
+    }
+
+    if (info.operator === undefined) {
+        Cleaner(true);
+        Kody_Request(text, "", Logging, WriteData);
+    }
+
+}
+
+
+
+
+function WriteTime(time) {
+    time= this;
+    var cur = document.getElementById("number_bla_label2");
+    cur.innerHTML = `
+                Время в регионе: <b>${time.toString()}</b> `;
+
+}
+
+function WriteData(text) {
+    // object.result_number = result_number;
+    // object.img_operator = img_operator;
+    // object.color_operator = color_operator;
+    // object.name_operator = name_operator;
+    // object.country = country;
+    // object.region_op = region_op;
+    // object.orig_op = orig_op;
+    // object.mnp_info = mnp_info[0];
+    // object.mnp_status = mnp_status;
+    // object.pool_op = pool_op;
+    Cleaner(true);
+    let data = this;
+    var cur = document.getElementById("number_bla_label");
+
+
+    //   ${link}  //onclick="f(); returnValue=false; return false;"
+    //
+    setTimeout( function(){
+
+        if (data.stat === "error")
+        {
+            cur.innerHTML = data.text;
+            return;
+        }
+
+        let img = "";
+        if (data.img_operator!==undefined) {
+            img =  `<img width="18" src="${data.img_operator}" style="margin-bottom:-3px;margin-left:3px" />`;
+        }
+        let region = "";
+
+        if (data.country === "Россия") {
+            let number = data.result_number.replace(/(?:\+7 )(?:\()(\d{3})(?:\))(?: )(\d{3})(?:-)(\d{2})(?:-)(\d{2})/ig, "$1$2$3$4");//(\+7)([\d]*);
+            if (data.name_operator === undefined) {
+                cur.innerHTML = `
+                                Номер: <b>${data.result_number}</b>.  <br>
+                                Регион: ${data.region_op} (${data.country})<br> `;
+
+
+            } else {
+                region = `${data.region_op} (${data.country})`;
+                if (text.id!==undefined && enableAutoOpenRegion) {
+
+                    //region = `<a href="#" onclick="getJSON(mf_id_ratio, choiseRegionbylink, ${text.id});" target="_self" class="linkofthegod">${data.region_op}</a> (${data.country})`;
+                    getJSON(mf_id_ratio, choiseRegionbylink, text.id);
+                    if (data.name_operator==="МТС") funcNagiev() ;
+                } else {
+                    //region = `${data.region_op} (${data.country})`;
+                }
+                cur.innerHTML = `
+                                Номер: <b>${data.result_number}</b>.  <br>
+                                Оператор: ${img} <span style="color:${data.color_operator}"><b>${data.name_operator}</b>.</span>
+                                 <a target="number_bla_iframe1" href="https://zniis.ru/bdpn/check?num=${number}" onclick='OpenZniis()'> Recheck </a> <br><br>
+                                Регион: ${region}<br>
+                                Из дипазона: ${data.pool_op}<br>
+                                MNP: ${data.mnp_status} <br>`;
+
+                if (data.mnp_status === "номер перенесен") {
+                    cur.innerHTML += `INFO: <b>${data.mnp_info}</b>.  <br> `;
+                }
+
+
+            }
+        } else {
+            cur.innerHTML = `
+                                Номер: <b>${data.result_number}</b>.  <br>
+                                Оператор: ${img}<span style="color:${data.color_operator}"><b>${data.name_operator}</b>.</span><br>
+                                Страна: ${data.country}<br> `;
+        }
+
+
+    }, 1000 );
+
+}
+function funcNagiev() {
+    nag_blablabla.style.top= "120px";
+    nag_blablabla.style.visibility= "visible ";
+        var start = Date.now(); // сохранить время начала
+        var ttt = 260;
+        var timer = setInterval(function() {
+            // вычислить сколько времени прошло из opts.duration
+            var timePassed = Date.now() - start;
+            ttt-=2;
+            nag_blablabla.style.backgroundPositionX = ttt + 'px';
+
+            if (ttt < 170) {
+                clearInterval(timer);
+
+            }
+
+        }, 7);
+    setTimeout(function() {
+        var timer1 = setInterval(function () {
+            ttt += 2;
+            nag_blablabla.style.backgroundPositionX = ttt + 'px';
+
+            if (ttt > 260) {
+                clearInterval(timer1);
+                nag_blablabla.style.top = "-200px";
+                nag_blablabla.style.visibility = "hidden";
+            }
+        }, 7);
+        }, 1500);
+
+}
+
+
+
+//windows.location.href= "";
+function compareNumber(number, callback, Kody_Request, Logging) {
+    //Kody_Request(number, "yota_newcombine_notebnote1", Logging, compareNumber);
+    let object = this;
+    document.getElementById("number_bla_label").innerHTML =  ` Подождём загрузку... `;
+
+
+    var reqw = window.XMLHttpRequest ? new XMLHttpRequest() : new ActiveXObject('Microsoft.XMLHTTP');
+
+    reqw.open( 'GET', 'https://cors.io/?http://www.megafon.ru/api/mfn/info?msisdn='+number , true );
+    reqw.responseType = 'json';
+    reqw.timeout = 2000;
+    reqw.onreadystatechange = function () {
+
+        if ( reqw.readyState === 4 && reqw.status === 200)   {
+            if (Offline.state === 'up') { callback.call(reqw.response, number, Kody_Request, Logging); }
+
+
+        } else if ( reqw.status === 403 || reqw.status === 500) {
+            callback.call(null, number, Kody_Request, Logging);
+        }
+    };
+    reqw.ontimeout = function (e) {
+        callback.call(reqw.response, number, Kody_Request, Logging);
+    };
+    if (Offline.state === 'down') {
+        document.getElementById("number_bla_label").innerHTML = `Пытаемся загрузить ... <a href="javascript:cancelXml()">Отменить</a>`;
+    }
+    try { reqw.send( null ); } catch (e) {
+
+        callback.call(null, number, Kody_Request, Logging);}
+
+
+}
+
+
+function cancelXml(callback)
+{
+
+    Logging.call("", "errorload cancel", WriteData, "");
+}
+
+
+function Logging(data, callback, text) {
+    if(data.search( /(errorload)/g ) !== -1) {
+//TODO: наименования ошибок
+        object = {stat: "error", text: "Ошибка загрузки. Повторите попытку" };
+        callback.call(object, text);
+        return;
+    }
+
+    if(data.search( /({неизвестно})/g ) !== -1) {
+
+        object = {stat: "error", text: "Номер некорректный" };
+        callback.call(object, text);
+    } else {
+        data = data.replace(new RegExp(/(\<s\>)(.*?)(\<\/s>)/, 'g'), "");
+
+        let object = {};
+        var result_number, img_operator, color_operator, name_operator, country, region_op, mnp_status, mnp_info, orig_op,
+            pool_start, pool_op, info_op, time, mnp_infoi= "";
+        if (data.search( /(Ошибка)(.*)(не найден)/g ) !== -1) {
+            object = {stat: "error", text: "Ошибка. Номер не найден" };
+            callback.call(object, text);
+            return;
+        }
+
+        if(data.search( /(?<=<img.*src\=\")/g ) !== -1) {
+            img_operator = data.match(/(?<=<img.*src\=\")(.*?)(?=\")/g)[0];
+        }
+
+        if(data.search( /(?<=\<span style=\"color\:)(.*?)(?=\"\>)/g ) !== -1) {
+            color_operator = data.match(/(?<=\<span style=\"color\:)(.*?)(?=\"\>)/g)[0];
+        } else {
+            color_operator = "#205081";
+        }
+
+
+
+        result_number = data.match(/(?<=<span class="result_number">)(.*?)(?=\<\/span>)/g)[0];
+
+        country = data.match(/(?<=\<strong\>)(.*?)(?=\<\/strong>)/g)[0];
+
+
+        if(country === "Россия") {
+            info_op = data.match(/(?<=\<strong\>)(.*?)(?=\<\/strong>)/g);
+            if(data.search( /(.*?)(?= \[)/g ) !== -1) {
+
+                if(data.search( /(?<=\<span style=\"color\:.*)(?<=\"\>)(.*?)(?=\<\/span>)/g ) !== -1) {
+                    name_operator = data.match(/(?<=\<span style=\"color\:.*)(?<=\"\>)(.*?)(?=\<\/span>)/g)[0];
+                } else {
+                    name_operator = data.match(/(?<=\<div class\=\"result_row\"\>.*\<\/span\>)(.*?)(?=\<\/div>)/g)[0];
+                }
+                region_op = info_op[1].match(/(?<=\[)(.*?)(?=\])/g)[0];
+                num_part = data.match(/(?<=\<td class\=\"part-tel\"\>)(.*?)(?=\<\/td>)/g);
+                orig_op = info_op[1].match(/(.*?)(?= \[)/g)[0];
+                pool_start = data.match(/[\d]{7}/g);
+                pool_op = `${num_part[1]}${pool_start[0]} - ${num_part[1]}${pool_start[1]}`;
+                mnp_status = data.match(/(?<=\<div class=\"result_bdpn bdpn\"\>БДПН\: \<b\>)(.*?)(?=\<\/b\>)/g)[0];
+                if (mnp_status === "номер перенесен") {
+                    mnp_info = data.match(/(?<=\<div class=\"result_bdpn bdpn\"\>БДПН\: \<b\>.*\<\/b\> - )(.*?)(?=\<\/div>)/g)[0];
+                } else {
+                    mnp_info = "-"
+                }
+
+            } else {
+                orig_op = "Не определен";
+                region_op = info_op[1];
+            }
+
+
+            time = data.match(/(?<=\<span id\=\"kody_time\".*data\=\")(.*?)(?=\"\>.*\<\/span\>)/g)[0];
+
+
+        } else {
+            name_operator = data.match(/(?<=\<div class\=\"result_row\"\>.*\<\/span\>)(.*?)(?=\<\/div>)/g)[0];
+        }
+
+        object = {
+            result_number: result_number,
+            img_operator: img_operator,
+            color_operator: color_operator,
+            name_operator: name_operator,
+            country: country,
+            region_op: region_op,
+            orig_op: orig_op,
+            mnp_info: mnp_info,
+            mnp_status: mnp_status,
+            pool_op: pool_op,time: time,};
+        callback.call(object, text);
+    }
+
+}
+
+function Kody_Request(text, idelem, callback, callback2) {
+
+//errorload timeout
+
+    var e = text.number,
+        o = document.getElementById(idelem),
+        n = CharsetDetect();
+
+    try {
+
+        data = "number=" + encodeURIComponent(e) + "&charset=" + n,
+            x = new (this.XMLHttpRequest || ActiveXObject)("MSXML2.XMLHTTP.3.0"), x.open(data ? "POST" : "GET", "https://www.kody.su/embed/widget.php?ref="
+            + document.referrer, 1), x.setRequestHeader("X-Requested-With", "XMLHttpRequest"), x.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        x.onreadystatechange = function () {
+            if (x.readyState > 3) {
+                if (200 == x.status)   if (Offline.state === 'up') { callback.call(o, x.responseText, callback2, text); }
+                //TODO: проверить на ошибки
+                else   if (Offline.state === 'down') { callback.call(o, "errorload 500", callback2, text); }
+            }
+            else if (x.status === 408 || x.status === 403 || x.status === 502 || x.status === 503 || x.status === 500) callback.call(o, "errorload 500");
+
+        };
+        x.timeout = 3000;
+        x.ontimeout = function (e) {
+            callback.call(o, "errorload timeout", callback2, text);
+        };
+        x.send(data)
+    } catch (r) {
+        window.console && console.log(r)
+    }
+
+
+
+}
+
+
+function CharsetDetect() {
+    for (var e = document.getElementsByTagName("meta"), t = 0; t < e.length; t++) if (e[t].getAttribute("charset")) return e[t].getAttribute("charset");
+    return ""
+}
+
+
+function OpenZniis() {
+
+    $('#overlay1').fadeIn(400,
+        function () {
+            $('#modal_form1')
+                .css('display', 'block') //
+                .animate({opacity: 1, top: '50%'}, 200); // плaвнo
+        });
+    // });
+
+
+}
+
+/* Зaкрытие мoдaльнoгo oкнa, тут делaем тo же сaмoе нo в oбрaтнoм пoрядке */
+$('#modal_close1, #overlay1, #savetemplatecombine ').click(function () { // лoвим клик пo крестику или пoдлoжке
+    $('#modal_form1')
+        .animate({opacity: 0, top: '45%'}, 200,  // плaвнo меняем прoзрaчнoсть нa 0 и oднoвременнo двигaем oкнo вверх
+            function () { // пoсле aнимaции
+                $(this).css('display', 'none'); // делaем ему display: none;
+                $('#overlay1').fadeOut(400); // скрывaем пoдлoжку
+
+            }
+        );
+});
+
+
+
+parent.frames["number_bla_iframe1"].document.location="https://zniis.ru/bdpn/check?num=9999999999";
+
+
+
