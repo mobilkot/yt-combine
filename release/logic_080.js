@@ -6,7 +6,7 @@ var jsondataOutRussia;
 let init_rate_russia;
 let init_rate_outrussia;
 
-
+const enableAutoOpenRegion = true;
 
 
 
@@ -36,7 +36,7 @@ function StartInit() {
 
 
 
-include('addscript.js');//https://raw.githack.com/mobilkot/yt-combine/master/adding.js
+include('https://raw.githack.com/mobilkot/yt-combine/master/adding.js');//https://raw.githack.com/mobilkot/yt-combine/master/adding.js
 
 includeUserTemplate();
 
@@ -1017,7 +1017,7 @@ function checkApps(node, type, callback) {
 
 
 function updateLegoInfo(obj, types) {
-     checkApps(obj, types, checkType); 
+     checkApps(obj, types, checkType);
     let texts = document.querySelector(`#yota_newcombine_b_tafir_summary_input_${types}`);
     let te1 = texts.nextElementSibling;
 
@@ -1962,11 +1962,11 @@ function copyTextRate(elem){
             focus.focus(); // Возвращаем фокус туда, где был
 
 
-            texts.innerText = 'Скопировано!'; 
+            texts.innerText = 'Скопировано!';
 
 
         } catch (e) {
-            texts.innerText = 'Ошибка!'; 
+            texts.innerText = 'Ошибка!';
         }
     }
 
@@ -1974,11 +1974,9 @@ function copyTextRate(elem){
 
 document.onkeydown = KeyPress;
 document.onreadystatechange = function() {
-    if (document.readyState === 'complete') { 
+    if (document.readyState === 'complete') {
     }
 };
-
-
 
 
 function animation(){
@@ -2001,7 +1999,21 @@ function animation(){
 
 ///
 window.addEventListener("DOMContentLoaded", function() {
-   
+    // $(".offline-ui").appendTo(".number_bla_box");
+    // Offline.options = {
+    //     game: false,
+    //     checkOnLoad: false,
+    //     interceptRequests: false,
+    //     requests: true,
+    //
+    // };
+    // Offline.options = {checks: {xhr: {url: 'https://www.kody.su/embed/widget.php'}}};
+    //
+    // Offline.check();
+    // if (Offline.error)
+    // {
+    //
+    // }
 
 
     function setCursorPosition(pos, elem) {
@@ -2249,7 +2261,9 @@ function compareNumber(number, callback, Kody_Request, Logging) {
     reqw.onreadystatechange = function () {
 
         if ( reqw.readyState === 4 && reqw.status === 200)   {
-              { callback.call(reqw.response, number, Kody_Request, Logging);  
+            // if (Offline.state === 'up') {
+                callback.call(reqw.response, number, Kody_Request, Logging);
+            // }
 
 
         } else if ( reqw.status === 403 || reqw.status === 500) {
@@ -2259,9 +2273,9 @@ function compareNumber(number, callback, Kody_Request, Logging) {
     reqw.ontimeout = function (e) {
         callback.call(reqw.response, number, Kody_Request, Logging);
     };
-     
-        document.getElementById("number_bla_label").innerHTML = `Пытаемся загрузить ... <a href="javascript:cancelXml()">Отменить</a>`;
-    
+    // if (Offline.state === 'down') {
+       // document.getElementById("number_bla_label").innerHTML = `Пытаемся загрузить ... <a href="javascript:cancelXml()">Отменить</a>`;
+    // }
     try { reqw.send( null ); } catch (e) {
 
         callback.call(null, number, Kody_Request, Logging);}
@@ -2383,10 +2397,16 @@ function Kody_Request(text, idelem, callback, callback2) {
             + document.referrer, 1), x.setRequestHeader("X-Requested-With", "XMLHttpRequest"), x.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
         x.onreadystatechange = function () {
             if (x.readyState > 3) {
-                if (200 == x.status)   callback.call(o, x.responseText, callback2, text); 
-                
+                if (200 == x.status)
+                    // if (Offline.state === 'up') {
+                    callback.call(o, x.responseText, callback2, text);
+                // }
+                //TODO: проверить на ошибки
+                // else   if (Offline.state === 'down') {
+                //     callback.call(o, "errorload 500", callback2, text);
+                // }
             }
-            else if (x.status === 408 || x.status === 403 || x.status === 502 || x.status === 503 || x.status === 500) callback.call(o, "errorload 500");
+            //else if (x.status === 408 || x.status === 403 || x.status === 502 || x.status === 503 || x.status === 500) callback.call(o, "errorload 500");
 
         };
         x.timeout = 3000;
@@ -2437,6 +2457,5 @@ $('#modal_close1, #overlay1, #savetemplatecombine ').click(function () { // лo�
 
 
 parent.frames["number_bla_iframe1"].document.location="https://zniis.ru/bdpn/check?num=9999999999";
-
 
 
